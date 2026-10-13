@@ -1,0 +1,85 @@
+:root, [data-theme="light"] { /* default theme: light */
+  color-scheme: light;
+
+  /* text and background */
+  --bg: var(--light);
+  --text: var(--dark);
+  --text-hover: var(--accent-300);
+  --page-background: url("/assets/images/bg-aero-light.jpg");
+  
+  --text-footer: var(--dark-600);
+  --text-footer-shadow: var(--glass-text-shadow);
+
+  /* glass texture */
+  --glass-tint: var(--light-200);
+  --glass-border: var(--light);
+  --glass-shadow: var(--dark);
+  
+  --glass-text-shadow: var(--light) 0px 0px 10px;
+  
+  /* glass alert box text */
+  --text-alertbox: oklch(from var(--danger) calc(l - 0.15) c h);
+  --text-warningbox: oklch(from var(--warning) calc(l - 0.15) c h);
+  --text-infobox: oklch(from var(--info) calc(l - 0.15) c h);
+
+  /* text on coloured elements */
+  --text-on-primary: var(--light);
+  --text-on-secondary: var(--light);
+  --text-on-dark: var(--light);
+
+  /* various things */
+  --article-border: var(--dark-200);
+  --tooltip-bg: var(--dark-700);
+  
+  /* whoami: id-card colours */
+  --idcard-front-from: var(--light-500);
+  --idcard-front-to:   var(--light-600);
+  --idcard-back-from:  var(--primary-100);
+  --idcard-back-to:    var(--primary-200);
+  
+  /* glosses */
+  --gloss-primary:       linear-gradient(to bottom, var(--primary-200) 0, var(--primary-300) 3%, var(--primary-400) 20%, var(--primary-500) 48%, var(--primary-600) 52%);
+  --gloss-primary-hover: linear-gradient(to bottom, var(--primary-400) 5%, var(--primary-500) 48%, var(--primary-600) 52%, var(--primary-500) 97%, var(--primary-400) 100%);
+  
+  --gloss-secondary:       linear-gradient(to bottom, var(--secondary-200) 0, var(--secondary-300) 3%, var(--secondary-400) 20%, var(--secondary-500) 48%, var(--secondary-600) 52%);
+  --gloss-secondary-hover: linear-gradient(to bottom, var(--secondary-400) 5%, var(--secondary-500) 48%, var(--secondary-600) 52%, var(--secondary-500) 97%, var(--secondary-400) 100%);
+  
+  --gloss-accent:       linear-gradient(to bottom, var(--accent-200) 0, var(--accent-300) 3%, var(--accent-400) 20%, var(--accent-500) 48%, var(--accent-600) 52%);
+  --gloss-accent-hover: linear-gradient(to bottom, var(--accent-400) 5%, var(--accent-500) 48%, var(--accent-600) 52%, var(--accent-500) 97%, var(--accent-400) 100%);
+  
+  --gloss-dark:         linear-gradient(to bottom, var(--dark-200) 0, var(--dark-300) 3%, var(--dark-400) 20%, var(--dark-500) 48%, var(--dark-600) 52%);
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  --bg: var(--dark);
+  --text: var(--light);
+  --text-hover: var(--accent-100);
+  --page-background: url("/assets/images/bg-aero-dark.jpg");
+  
+  --text-footer: var(--light-200);
+  --text-footer-shadow: var(--glass-text-shadow);
+
+  --glass-tint: var(--light-200);
+  --glass-border: var(--light-200);
+  --glass-shadow: black;
+  
+  --glass-text-shadow: var(--dark) 0px 0px 10px;
+  
+  --text-alertbox: oklch(from var(--danger) calc(l + 0.15) c h);
+  --text-warningbox: oklch(from var(--warning) calc(l + 0.15) c h);
+  --text-infobox: oklch(from var(--info) calc(l + 0.15) c h);
+
+  --text-on-primary: var(--light);
+  --text-on-secondary: var(--light);
+  --text-on-dark: var(--light);
+
+  --article-border: var(--light-800);
+  --tooltip-bg: var(--dark-300);
+  
+  --idcard-front-from: var(--dark-500);
+  --idcard-front-to:   var(--dark-600);
+  --idcard-back-from:  var(--primary-700);
+  --idcard-back-to:    var(--primary-800);
+}

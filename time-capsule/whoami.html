@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>andr3x's Time Capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/whoami.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+            
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>whoami</h1>
+                <span>andr3x40</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; whoami
+        </div>
+        <hr>
+        <div class="id-card-container">
+            <div class="id-card" id="id-card">
+                <div class="id-card-side id-card-front">
+                    <div class="id-card-image">
+                        <img src="/assets/images/andr3x40-funky.png" class="picture"/>
+                    </div>
+                    <div class="details">
+                        <div class="line">
+                            <h6 class="line-label">Name</h6>
+                            <div class="line-text">Andrea <span class="line-text-detail">(Andrew)</span></div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Age</h6>
+                            <div class="line-text">23</div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Gender</h6>
+                            <div class="line-text">Male <span class="line-text-detail">(he/him)</span></div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Country</h6>
+                            <div class="line-text">Italy</div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Languages</h6>
+                            <div class="line-text">Italian, English</div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Biography</h6>
+                            <div class="line-text">
+                                I'm an Italian guy who likes to create things.<br>
+                                Currently a student in Computer Engineering.<br>
+                                Technology nerd since 2006 with a sheer passion for videogames and music. Books and comics enjoyer.<br>
+                                I have a toxic relationship with modern tech and I miss the days where computers had a synthetic soul.<br>
+                                Always with lots of things that I want to do, but not much time for everything.<br>
+                                I still have to check on how to learn how to play an electric guitar.<br>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <h6 class="line-label">Find me also on</h6>
+                            <div class="line-text">
+                                &bullet; <a href="https://github.com/andr3x40">GitHub</a><br>
+                                &bullet; <a href="https://www.threads.com/@andr3x40" class="with-tooltip" data-tooltip="I only post in Italian here!">Threads</a><br>
+                                &bullet; <a href="https://bsky.app/profile/andr3x40.bsky.social">Bluesky</a><br>
+                            </div>
+                        </div>
+                        <div class="flip-line flip-line-front">
+                            <button id="flip-front" class="button-accent">Flip</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="id-card-side id-card-back">
+                    <div class="id-card-image">
+                        <img src="/assets/images/andr3x40-funky.png" class="picture"/>
+                    </div>
+                    <div class="details">
+                        <div class="line">
+                            <h6 class="line-label">WIP</h6>
+                            <div class="line-text">
+                                I'll write the lore of my OC here.<br>
+                                Lorem ipsum something something ahhh whatever<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa<br>
+                                aaa
+                            </div>
+                        </div>
+                        <div class="flip-line flip-line-back">
+                            <button id="flip-back" class="button-accent">Flip</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+        <script>
+            const card = document.getElementById('id-card');
+            const btn = document.getElementById('flip-front');
+            const btn2 = document.getElementById('flip-back');
+            
+            btn.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+                console.log("Test");
+            });
+            btn2.addEventListener('click', () => {
+                card.classList.toggle('flipped');
+                console.log("Test");
+            });
+        </script>
+    </body>
+</html>

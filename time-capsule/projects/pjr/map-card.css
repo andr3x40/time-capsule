@@ -1,0 +1,197 @@
+@import "/palette.css";
+@import "/theme.css";
+
+/* filter box */
+.map-list-filters {
+    display: grid;
+    grid-template-areas: "search-box select-box select-box";
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 15px;
+    padding: 15px;
+}
+
+.map-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.map-card {
+    width: 1fr;
+    height: 30px;
+    
+    display: grid;
+    grid-template-areas: "chart-info chart-difficulty";
+    grid-template-columns: 1fr auto;
+    align-content: center;
+    
+    color: var(--light);
+    
+    padding: 15px;
+    gap: 15px;
+    background: linear-gradient(to bottom, var(--dark-400) 0, var(--dark-500) 20%, var(--dark-600) 48%);
+}
+.map-card:hover {
+    height: 75px;
+    cursor: pointer;
+    background: linear-gradient(to bottom, var(--dark-200) 0, var(--dark-300) 3%, var(--dark-400) 20%, var(--dark-500) 48%, var(--dark-600) 52%);
+}
+
+/* hide additional elements when not hovered */
+.map-card .artist,
+.map-card .difficulty-ticks {
+    display: none;
+}
+/* display additional elements when hovered (set inline for spans, block for divs, flex for flexboxes) */
+.map-card:hover .artist {
+    display: inline;
+}
+.map-card:hover .difficulty-ticks {
+    display: flex;
+}
+
+.chart-info {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+}
+
+.chart-difficulty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    gap: 3px;
+}
+
+.artist {
+    line-height: 100%;
+    font-size: 0.9em;
+}
+.title {
+    margin: 2px 0;
+    line-height: 100%;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.subtitle {
+    line-height: 100%;
+    font-size: 0.9em;
+}
+
+.difficulty {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    font-variant-numeric: tabular-nums;
+    
+    color: var(--dark);
+    font-weight: 700;
+    
+    height: 24px;
+    border-radius: 12px;
+    
+    padding: 0 4px 0px 12px;
+}
+
+.difficulty.difficulty-1, .difficulty-ticks .tick-1 {
+    background: linear-gradient(to bottom, var(--blue-25) 0, var(--blue-50) 3%, var(--blue-100) 20%, var(--blue-200) 48%, var(--blue-300) 52%);
+}
+.difficulty.difficulty-2, .difficulty-ticks .tick-2 {
+    background: linear-gradient(to bottom, var(--mint-25) 0, var(--mint-50) 3%, var(--mint-100) 20%, var(--mint-200) 48%, var(--mint-300) 52%);
+}
+.difficulty.difficulty-3, .difficulty-ticks .tick-3 {
+    background: linear-gradient(to bottom, var(--yellow-25) 0, var(--yellow-50) 3%, var(--yellow-100) 20%, var(--yellow-200) 48%, var(--yellow-300) 52%);
+}
+.difficulty.difficulty-4, .difficulty-ticks .tick-4 {
+    background: linear-gradient(to bottom, var(--red-25) 0, var(--red-50) 3%, var(--red-100) 20%, var(--red-200) 48%, var(--red-300) 52%);
+}
+.difficulty.difficulty-5, .difficulty-ticks .tick-5 {
+    background: linear-gradient(to bottom, var(--purple-25) 0, var(--purple-50) 3%, var(--purple-100) 20%, var(--purple-200) 48%, var(--purple-300) 52%);
+}
+.difficulty.difficulty-6, .difficulty-ticks .tick-6 {
+    background: linear-gradient(to bottom, var(--indigo-25) 0, var(--indigo-50) 3%, var(--indigo-100) 20%, var(--indigo-200) 48%, var(--indigo-300) 52%);
+}
+.difficulty.difficulty-0, .difficulty-ticks .tick-0 {
+    background: linear-gradient(to bottom, var(--gray-25) 0, var(--gray-50) 3%, var(--gray-100) 20%, var(--gray-200) 48%, var(--gray-300) 52%);
+}
+
+.intensity {
+    background: linear-gradient(to bottom, var(--dark-100) 0, var(--dark-200) 3%, var(--dark-300) 20%, var(--dark-400) 48%, var(--dark-500) 52%);
+    border-radius: 12px;
+    color: var(--light);
+    width: 44px;
+    text-align: center;
+    min-width: 44px;
+}
+
+.difficulty-name {
+    min-width: 100px;
+    display: inline-block;
+    position: relative;
+    z-index: 10;
+    color: black;
+    padding-right: 8px;
+    
+    text-overflow: clip;
+    white-space: nowrap;
+    overflow: hidden;
+    
+    transition: color 0.3s ease;
+    transition-delay: 0s;
+    
+    animation: bounce 6s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 10%   { transform: translateX(0); }
+    50%       { transform: translateX(min(0px, calc(100cqw - 100%))); }
+    90%, 100% { transform: translateX(0); }
+}
+
+.difficulty-name:hover {
+    color: transparent;
+    transition: color 0.3s ease;
+    transition-delay: 0s;
+}
+
+.difficulty-name::after {
+    content: attr(data-difficulty);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    color: initial;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    transition-delay: 0s;
+}
+
+.difficulty-name:hover::after {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease, color 0.3s ease;
+    transition-delay: 0s;
+}
+
+.difficulty-ticks {
+    display: flex;
+    flex-direction: row;
+    
+    gap: 3px;
+}
+
+.difficulty-ticks div {
+    width: 20px;
+    height: 3px;
+    border-radius: 1px;
+    background-color: white;
+}

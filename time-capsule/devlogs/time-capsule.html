@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; Time Capsule
+        </div>
+        <hr>
+        <div class="box info-box timezone">
+            <span>
+                Every date and time you may see here is in <a href="https://en.wikipedia.org/wiki/Central_European_Time" class="with-tooltip" data-tooltip="Central Europe Time (UTC+1)">CET</a>
+                or <a href="https://en.wikipedia.org/wiki/Central_European_Summer_Time" class="with-tooltip" data-tooltip="Central Europe Summer Time (UTC+2)">CEST</a>
+            </span>
+        </div>
+        <div class="sidebar-container">
+            <section class="sidebar">
+                <h4>Version 1</h4>
+                <a href="#post4">Implementing Aero</a>
+                <a href="#post3">Understanding Aero</a>
+                <a href="#post2">Static &amp; Dynamic</a>
+                <a href="#post1">Basics</a>
+            </section>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post4" class="title">Devlog 4 - Implementing Aero</h2>
+                        <span class="date" data-d="8" data-m="10" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            After a quick research on Wikipedia, I learned that the Aero style is characterised by bright colours and skeuomorphism.
+                        </p>
+                        <p>
+                            That second box was already checked because I was creating some glassy textures, but I was missing the first one.<br>
+                            You see... I like a dark theme for my website. But... yeah, Aero was definetely a light theme. So, I adapted the entire website's colours to support both.
+                        </p>
+                        <p>
+                            Since I spend a lot of time in front of a screen because every single thing I like to do involves a computer of some sort,
+                            I love having a dark theme that doesn't fry my retinas even more.
+                        </p>
+                        <p>
+                            Of course, I tried to give my own spin to an Aero theme and created this beauty that works even in the dark, but I feel I need to create a test page to see
+                            all of my components in action.
+                        </p>
+                        <p>
+                            With theming crossed from my list of things, what's left now is:
+                            <ul>
+                                <li>setting up an <strong>RSS feed</strong> for blog and devlogs</li>
+                                <li>creating the <strong>Music</strong> page for my playlists</li>
+                                <li>filling up the list of <strong>Clone Hero charts</strong></li>
+                                <li>creating the <strong>Luna</strong> theme</li>
+                            </ul>
+                        </p>
+                    </div>
+                </article>
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post3" class="title">Devlog 3 - Understanding Aero</h2>
+                        <span class="date" data-d="18" data-m="9" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            It was coming from the start. This website will have an Aero theme.<br>
+                            It was there when I was using Windows 7. It was on my Wii, my 3DS and my Wii U. It was partially on my PS4 as well.
+                            And I absolutely <strong>LOVED</strong> it. I still like it to this day.
+                        </p>
+                        <p>
+                            I decided to have a sort of Frutiger Aero style for this time capsule because... well... it's a time capsule.
+                            The style I've seen for most of my life (and I still see today, because of my 3DS) had to be here.
+                            I could've gone even more back in time and create a more XP-esque* style, but I like Aero more.
+                        </p>
+                        <p class="small-text">
+                            *after some research, I discovered that theme has a name and is called "luna". I didn't know that lol
+                        </p>
+                        <p>
+                            It was a nightmare to set up and it will be a nightmare to set up. Now I know why everybody has moved to minimalism: it's 100 times easier to make, at the cost of... being a flat design.<br>
+                            I still like it, I'm a fan of flat designs if they play with shapes. 
+                        </p>
+                        <p>
+                            It will be easier when the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@function"><tt>@function</tt></a> CSS rule will be Baseline, but for now I have to do
+                            everything by hand, spamming copy-and-paste so much that my Control, C and V keys break.<br>
+                            I'll also have to look to a lot of references to faithfully recreate this kind of style. I don't want to miss anything. There have to be some other guides on Microsoft's website.
+                        </p>
+                        <p>
+                            Also, speaking of Frutiger Aero: now we're on that weird imitation which is Liquid Glass, but it's incredibly heavy on graphics and... it's just weird.
+                            Telegram sort-of has it, and it's <em>sooo</em> roundy and weird with buttons. Everybody was so hyped (even I) but... it's not the same thing.
+                        </p>
+                        <p>
+                            I'll add other themes when I know how to swap between them, but Liquid Glass is not on the list. Too resource-demanding.
+                        </p>
+                    </div>
+                </article>
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post2" class="title">Devlog 2 - Static &amp; Dynamic</h2>
+                        <span class="date" data-d="13" data-m="9" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            You have NO idea how much time it took for me to create a working list with search options and dialogue boxes.
+                            I was so used to Bootstrap or PrimeNG (I was using Angular back then) and... man, this is complicated.
+                        </p>
+                        <p>
+                            Long story short: for <a href="/projects/pjr">Project R</a> I had to create a list system to display all of my charts I made for Clone Hero.
+                            I had to create some way to not display too many information at once, but show everything needed with the click of a button, but more importantly...<br>
+                            I had to learn how to create something that would work dynamically. <strong>In a static website.</strong>
+                        </p>
+                        <p>
+                            The reason is simple: I have <em>soooo</em> many charts (around 250) that I need to lay down in a single page. There's a lot of problems in doing it one by one:
+                            <ul>
+                                <li>I have a lot of info and data to show, so I have to display them in a way that's not overwhelming (I like minimalism)</li>
+                                <li>That data may change in the future because I may release fixes to the charts</li>
+                                <li>An entire page could weigh a whole MB</li>
+                            </ul>
+                            And because of this, I put every data inside a JSON file, made a JavaScript to read that file and created the list dynamically using a template.
+                            Then I placed a dialogue box for all info to show (took me two days to get the design right) and added filters and a search box.
+                        </p>
+                        <p>
+                            And now, that thing works beautifully. All the data is messed up and there's only 60 charts, but I'll fill all the correct data afterwards.
+                        </p>
+                        <p>
+                            I'm not adding pagination because there's a search box and the list is compact enough for me to not care much, but I'll add more filters (and sorting, obviously).
+                            But now I'm going to waste time on Binding of Isaac, sorry.
+                        </p>
+                    </div>
+                </article>
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post1" class="title">Devlog 1 - Basics</h2>
+                        <span class="date" data-d="26" data-m="8" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            I've been working on this website for three days now.<br>
+                            Now I'm simply creating the pages and then I'll fill everything in once I know how to structure it. I can't do it the way I'm used to because I can't have
+                            dynamic pages or templates, but that's fine. I don't need them for a simple website that will serve as a repository for everything I can think of.
+                        </p>
+                        <p>
+                            Despite all that, I'm having fun doing this. I don't have to do something too serious, and I never wanted to. I just want this to look cool.
+                        </p>
+                        <p>
+                            I'm still thinking on the design the website should have. ...I think I'll create some themes to choose from because I can't decide.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>

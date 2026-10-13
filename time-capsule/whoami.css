@@ -1,0 +1,158 @@
+@import "/palette.css";
+@import "/theme.css";
+
+.id-card-container {
+    perspective: 1000px;
+    width: 1fr;
+    height: 550px;
+    margin: 50px 90px;
+}
+
+.id-card, .id-card-front, .id-card-back {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); /* ease out quart */
+    
+    font-family: "Inter";
+    
+    margin: 0;
+}
+
+.id-card.flipped {
+    transform: rotateX(180deg);
+}
+
+.id-card-front, .id-card-back {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    
+    border-radius: 6px;
+    border: 1px solid rgb(from var(--light) r g b / 0.5);
+    box-shadow: 2px 2px 3px rgb(from var(--dark) r g b / 0.8), inset -1px -1px 0 rgb(from var(--light) r g b / 0.2);
+    padding: 18px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    
+    box-sizing: border-box;
+}
+
+.id-card-front {
+  background: linear-gradient(to bottom, var(--idcard-front-from), var(--idcard-front-to));
+}
+
+.id-card-back {
+  background: linear-gradient(to bottom, var(--idcard-back-from), var(--idcard-back-to));
+  transform: rotateX(180deg);
+}
+
+.id-card-side a {
+    color: var(--text);
+}
+
+.id-card-side a:hover {
+    color: var(--text-hover);
+}
+
+.id-card-side {
+    display: grid;
+    grid-template-areas: "picture details";
+    grid-template-columns: 150px 1fr;
+}
+
+.id-card-image {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    
+    border: 5px ridge var(--primary-50);
+}
+
+.id-card-image img {
+    display: block;   /* evita lo spazio vuoto sotto l'immagine */
+    max-width: 100%;
+}
+
+.id-card-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+    0.45turn,
+    rgb(from var(--light) r g b / 0.20) 0,
+    rgb(from var(--light) r g b / 0.20) 35%,
+    rgb(from var(--light) r g b / 0.14) 38%,
+    transparent 90%
+    );
+    pointer-events: none; /* non blocca click/selezione sull'immagine */
+    
+    border-radius: 5px;
+}
+
+.id-card-side .picture {
+    width: 150px;
+    height: 150px;
+    
+    border-radius: 5px;
+}
+
+.id-card-side .details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.id-card-side .line {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "line-label line-text";
+    grid-template-columns: 20% auto;
+    gap: 15px;
+}
+
+.id-card-side .flip-line {
+    margin-top: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    
+    margin-bottom: -25px;
+}
+
+.flip-line button {
+    font-family: "Inter";
+    width: 100px;
+    color: var(--light);
+}
+
+.line .line-label {
+    font-size: 1em;
+    font-weight: 700;
+    text-align: right;
+    margin: 0;
+    
+    font-style: italic;
+}
+
+.line .line-text {
+    font-size: 1em;
+    font-weight: 400;
+    text-align: left;
+}
+
+.line-text .line-text-detail {
+    font-weight: 200;
+    font-style: italic;
+}

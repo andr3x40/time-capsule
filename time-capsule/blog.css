@@ -1,0 +1,117 @@
+@import "/palette.css";
+@import "/theme.css";
+
+.sidebar-container {
+    width: 100%;
+    display: grid;
+    grid-template-areas: "sidebar main";
+    grid-template-columns: 1fr 4fr;
+    gap: 5px;
+    justify-items: stretch;
+}
+
+.sidebar-container .sidebar {
+    grid-area: sidebar;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar-container .main {
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 10px 0;
+}
+
+.sidebar h4 {
+    margin: 0px;
+    color: var(--light);
+}
+
+.sidebar li {
+    color: var(--accent-100);
+}
+.sidebar li a {
+    color: var(--text);
+}
+.sidebar li a:visited {
+    color: var(--accent-200);
+}
+.sidebar li a:hover {
+    color: var(--accent-100);
+}
+
+.post {
+    background-color: var(--bg);
+    border: var(--dark-200) solid 1px;
+}
+
+.main, .sidebar {
+    background: linear-gradient(to bottom, rgb(from var(--light-200) r g b / 0.05), rgb(from var(--light-200) r g b / 0.02) );
+    border-radius: 6px;
+    border: 1px solid rgb(from var(--light) r g b / 0.5);
+    box-shadow: 2px 2px 3px rgb(from var(--dark) r g b / 0.8), inset -1px -1px 0 rgb(from var(--light) r g b / 0.2);
+    padding: 8px;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    text-align: center;
+    padding: 5px;
+    margin: 10px 0;
+}
+.sidebar h4 {
+    background: var(--gloss-accent);
+    border: var(--accent-300) solid 1px;
+    border-radius: 5px;
+    padding: 4px;
+}
+.sidebar a {
+    background: var(--gloss-primary);
+    border: var(--primary-300) solid 1px;
+    border-radius: 5px;
+    padding: 4px;
+    color: var(--light);
+    
+    font-size: small;
+    text-decoration: none;
+}
+.sidebar a:hover {
+    background: var(--gloss-primary-hover);
+    color: var(--light);
+}
+
+.post-header, .post-content {
+    padding: 0 15px;
+}
+
+.post .post-header {
+    display: grid;
+    grid-template-areas: "title time";
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    color: var(--light);
+    background: var(--gloss-primary);
+}
+
+.post-header {
+    line-height: 100%;
+}
+
+.post-header .title {
+    text-align: left;
+}
+.post-header .date {
+    text-align: right;
+    font-size: small;
+    color: var(--light-200);
+}
+
+.timezone {
+    font-size: small;
+    text-align: center;
+    margin: 15px 0;
+}

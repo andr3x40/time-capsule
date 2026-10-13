@@ -1,0 +1,3 @@
+# ignore favicon and images
+time-capsule/favicon.png
+time-capsule/assets/images

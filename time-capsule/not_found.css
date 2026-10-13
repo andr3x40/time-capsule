@@ -1,0 +1,61 @@
+@import "/palette.css";
+@import "/theme.css";
+
+body {
+    font-family: 'Inter', sans-serif;
+    
+    max-width: 1080px;
+    margin: 0 auto;
+    
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.5) 1%, rgba(0, 0, 0, 1) 25%), var(--page-background);
+    backdrop-filter: grayscale(100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    color: var(--light);
+    min-height: 100vh;
+    
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--danger);
+    text-shadow: black 2px 2px 4px;
+}
+
+.text {
+    margin-bottom: 100px;
+    text-shadow: black 1px 1px 2px;
+}
+
+a {
+    font-size: small;
+    color: var(--light);
+    
+    text-decoration: none;
+    
+    width: 150px;
+    
+    border-radius: 5px;
+    padding: 2px 8px;
+    font-weight: 600;
+    
+    background: linear-gradient(to bottom, var(--red-200) 0, var(--red-300) 3%, var(--red-400) 20%, var(--red-500) 48%, var(--red-600) 52%);
+    border: var(--red-300) solid 1px;
+}
+a:hover {
+    color: var(--primary-50);
+    
+    text-decoration: none;
+    
+    background: linear-gradient(to bottom, var(--red-400) 5%, var(--red-500) 48%, var(--red-600) 52%, var(--red-500) 97%, var(--red-400) 100%);
+    color: white;
+}

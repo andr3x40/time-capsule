@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/index.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+            
+        <header class="landing">
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>andr3x's time capsule</h1>
+                <span id="splash">media can break the fourth wall, i break the fourth dimension</span>
+            </div>
+        </header>
+        <hr>
+        <section class="main">
+            <article>
+                <h2 class="header-primary">Welcome!</h2>
+                <div class="article-content">
+                    <p>
+                        Hi! I'm an Italian guy who likes to create things and this is my personal <em>"time capsule"</em>.
+                    </p>
+                </div>
+            </article>
+            <article>
+                <h2 class="header-primary">The Time Capsule</h2>
+                <div class="article-content">
+                    <p>
+                        This is a place where I put everything I've done in the past and present and want to share to the world.<br>
+                        I had to create a website to act as a repository and needed something simple, and that's how this... sort of time capsule came to life.
+                    </p>
+                    <p>
+                        Time capsules are supposed to be sealed and never opened for, like, ten years?
+                        This, instead, can be opened by everyone, including myself, at any given point in time.
+                        The only thing that will make this like a time capsule is me restraining from modifying past stuff.
+                    </p>
+                    <p>
+                        Down here I'll explain every section of this place and why it's there.
+                    </p>
+                </div>
+            </article>
+            <article>
+                <h3 class="header-secondary">My Projects</h3>
+                <div class="article-content">
+                    <p>
+                        Mainly, this website serves as my <strong>project repository</strong>.<br>
+                        These are mostly related to coding and videogames, but there may be something else in the future.
+                    </p>
+                    <p>
+                        For each of these I'll try to keep a devlog, so you'll know how the things are going.
+                    </p>
+                    <p class="button-tab">
+                        <a href="projects" class="button button-accent">Go to Projects</a>
+                        <a href="devlogs" class="button button-primary">Go to Devlogs</a>
+                    </p>
+                </div>
+            </article>
+            <article>
+                <h3 class="header-secondary">The Blog</h3>
+                <div class="article-content">
+                    <p>
+                        Considering how I have a lot to say about anything and I like to write about it, I had to create a <strong>blog</strong> where I can share things I like.
+                    </p>
+                    <p>
+                        I never liked social media and never will, but I'd like to still use microblogging platforms and not care about the fuel mechanisms of those circles of hell,
+                        except Twitter is off-limits, Threads is awful and Bluesky's Discover algorithm is <em>SO ANNOYING</em>.
+                        So I have no choices except Tumblr or a handmade blog. I preferred the second option.
+                    </p>
+                    <p class="button-tab">
+                        <a href="blog" class="button button-accent">Go to Blog</a>
+                    </p>
+                </div>
+            </article>
+            <article>
+                <h3 class="header-secondary">Music Library</h3>
+                <div class="article-content">
+                    <p>
+                        I thought it would be a good idea to have a <b>music</b> tab where I show all of my playlists in a cool way.<br>
+                        Being a guy who listens to lots of different genres and navigating between two, if not <em>three</em> extremes of the musical world, I thought
+                        it would be interesting to show them as a big digital library.
+                    </p>
+                    <p class="button-tab">
+                        <a class="button button-disabled">Go to Music Library (WIP)</a>
+                    </p>
+                </div>
+            </article>
+        </section>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+            
+        </div>
+        
+        <script> // splash script
+            const splashDisplay = document.getElementById('splash');
+            let splashes = [];
+            
+            function rollSplashList() {
+                let rollableSplashes = [];
+                for (let splash of splashes) {
+                    for (let x = 0; x < splash.weight; x++) {
+                        rollableSplashes.push(splash.text);
+                    }
+                }
+                return rollableSplashes[Math.floor(Math.random() * rollableSplashes.length)];
+            }
+        
+            function loadSplashText() {
+                let text = rollSplashList();
+                splashDisplay.innerHTML = text;
+            }
+            
+            async function load() {
+                const response = await fetch("/assets/splashes.json");
+                if (!response.ok) {
+                    console.error(`${response.status}`);
+                    throw new Error(`${response.status}`);
+                }
+                let allSplashes = await response.json();
+                // filter the splashes based on special rules
+                splashes = allSplashes.filter((splash) => {
+                    if (splash.specialRules === undefined) return true; // skip it
+                    // get the current date
+                    let today = new Date(Date.now());
+                    let thisDay = splash.specialRules.day === undefined ? true : today.getDate() === splash.specialRules.day;
+                    let thisMonth = splash.specialRules.month === undefined ? true : today.getMonth() === (splash.specialRules.month - 1); // getMonth() returns 0 for January, when on specialRules is 1
+                    return thisDay && thisMonth;
+                });
+            }
+            
+            document.addEventListener('DOMContentLoaded', load);
+            
+            splashDisplay.addEventListener('click', (e) => loadSplashText());
+        </script>
+    </body>
+</html>

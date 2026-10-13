@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>R:\GHRB Charts - andr3x's Time Capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/projects/pjr/map-card.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/projects/pjr/chart-dialog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load charts -->
+        <script type="text/javascript" src="/assets/scripts/chartloader-ghrb.js" defer></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Project R:\GHRB Charts</h1>
+                <span>a big collection of maps for guitar hero and rock band clone games</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/projects">Projects</a> &blacktriangleright; <a href="/projects/pjr">Project R</a> &blacktriangleright; R:\GHRB Charts
+        </div>
+        <hr>
+        <div class="box alert-box">
+            <span>
+                This part is still a big <b>work in progress</b>.<br>If you're actually looking into downloading some of my charts, check my <a href="https://docs.google.com/spreadsheets/d/1xsoCleWgW6GCJ5iBlx6aRf7DRYm6FsP8HWtjkiXgV6c/edit?gid=1975441925#gid=1975441925">spreadsheet</a> for now.
+            </span>
+        </div>
+        <section>
+            <div class="map-list-filters" id="map-list-filters">
+                <input type="text" class="search-box" id="filter-search" />
+                <select class="select-box" id="filter-instrument">
+                    <option value="all">All GHRB instruments</option>
+                    <option value="leadGuitar5" selected>5 Fret Lead Guitar</option>
+                    <option value="rhythmGuitar5">5 Fret Rhythm Guitar</option>
+                    <option value="bassGuitar5">5 Fret Bass Guitar</option>
+                    <option value="leadGuitar6">6 Fret Lead Guitar</option>
+                    <option value="rhythmGuitar6">6 Fret Rhythm Guitar</option>
+                    <option value="bassGuitar6">6 Fret Bass Guitar</option>
+                    <option value="keys5">5 Lane Keyboard</option>
+                    <option value="keys6">6 Lane Keyboard</option>
+                    <option value="bassGuitar6">Drums</option>
+                    <option value="bassGuitar6">Pro Drums</option>
+                </select>
+                <select class="select-box" id="filter-difficulty">
+                    <option value="all">All difficulties</option>
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                    <option value="expert" selected>Expert</option>
+                    <option value="expert+">Expert+</option>
+                </select>
+            </div>
+            <article class="map-list" id="map-list-container">
+                <div class="map-card">
+                    <div class="chart-info">
+                        <span class="artist">Loading</span>
+                        <h2 class="title">Loading</h2>
+                        <span class="subtitle">Loading</span>
+                    </div>
+                    <div class="chart-difficulty">
+                        <div class="difficulty difficulty-0">
+                            <span class="difficulty-name" data-difficulty="Loading">Loading</span>
+                            <span class="intensity">00</span>
+                        </div>
+                        <div class="difficulty-ticks">
+                            <div class="tick-0"></div>
+                            <div class="tick-0"></div>
+                            <div class="tick-0"></div>
+                            <div class="tick-0"></div>
+                            <div class="tick-0"></div>
+                            <div class="tick-0"></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <!-- dialog to show details about a chart -->
+        <dialog id="map-detail-dialog">
+            <button id="close-dialog" aria-label="Close">✕</button>
+            <div class="dialog-content">
+                <div class="dialog-chart-info">
+                    <div class="jacket-container">
+                        <img class="jacket" id="chart-jacket" src="/assets/images/placeholder.jpg" alt="">
+                    </div>
+                    <div class="track-info">
+                        <div>
+                            <span class="artist" id="chart-artist">${item.artist}</span>
+                            <span class="title" id="chart-title">${item.title}</span>
+                            <span class="subtitle" id="chart-subtitle">${item.subtitle ?? ""}</span>
+                        </div>
+                        <div>
+                            <span class="album-year-genre" id="chart-album-year-genre">${item.album}, ${item.year} - ${item.subgenre}</span>
+                            <span class="length-bpm" id="chart-length-bpm">${item.length} - ${item.bpmRange} BPM</span>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="dialog-chart-description" id="chart-description">
+                    ${item.loadPhrase}
+                </div>
+                <hr>
+                <div class="dialog-chart-variants-info">
+                    Hover variants for more info
+                </div>
+                <div class="dialog-chart-variants" id="chart-variants">
+                    <!-- example
+                    <div class="instrument">
+                        <div class="instrument-name">5 Fret Lead Guitar</div>
+                        <div class="variants">
+                            <div class="variant">
+                                <span class="variant-difficulty difficulty-1" data-tooltip="2.25 NPS">
+                                    <span>Easy</span>
+                                    <span class="variant-intensity" data-intensity="3.0">03</span>
+                                </span>
+                            </div>
+                            <div class="variant">
+                                <span class="variant-difficulty difficulty-2" data-tooltip="3.45 NPS">
+                                    <span>Medium</span>
+                                    <span class="variant-intensity" data-intensity="4.0">04</span>
+                                </span>
+                            </div>
+                            <div class="variant">
+                                <span class="variant-difficulty difficulty-3" data-tooltip="5.55 NPS">
+                                    <span>Hard</span>
+                                    <span class="variant-intensity" data-intensity="6.4">06</span>
+                                </span>
+                            </div>
+                            <div class="variant">
+                                <span class="variant-difficulty difficulty-4" data-tooltip="7.75 NPS">
+                                    <span class="variant-difficulty-name" data-difficulty="Expert">Lunatic</span>
+                                    <span class="variant-intensity" data-intensity="8.7">08&#8314;</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+                <hr>
+                <div class="dialog-download-buttons">
+                    <a class="button button-primary" id="chart-download" href="">Download</a>
+                    <div class="button-group" id="chart-listen">
+                        <a class="button button-secondary button-hidden" id="chart-listen-youtube" href="">
+                            <svg class="button-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Listen on YouTube / YouTube Music</title>
+                                <path d="M12 0C5.376 0 0 5.376 0 12s5.376 12 12 12 12-5.376 12-12S18.624 0 12 0zm0 19.104c-3.924 0-7.104-3.18-7.104-7.104S8.076 4.896 12 4.896s7.104 3.18 7.104 7.104-3.18 7.104-7.104 7.104zm0-13.332c-3.432 0-6.228 2.796-6.228 6.228S8.568 18.228 12 18.228s6.228-2.796 6.228-6.228S15.432 5.772 12 5.772zM9.684 15.54V8.46L15.816 12l-6.132 3.54z"/>
+                            </svg>
+                        </a>
+                        <a class="button button-secondary button-hidden" id="chart-listen-soundcloud" href="">
+                            <svg class="button-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Listen on SoundCloud</title>
+                                <path d="M23.999 14.165c-.052 1.796-1.612 3.169-3.4 3.169h-8.18a.68.68 0 0 1-.675-.683V7.862a.747.747 0 0 1 .452-.724s.75-.513 2.333-.513a5.364 5.364 0 0 1 2.763.755 5.433 5.433 0 0 1 2.57 3.54c.282-.08.574-.121.868-.12.884 0 1.73.358 2.347.992s.948 1.49.922 2.373ZM10.721 8.421c.247 2.98.427 5.697 0 8.672a.264.264 0 0 1-.53 0c-.395-2.946-.22-5.718 0-8.672a.264.264 0 0 1 .53 0ZM9.072 9.448c.285 2.659.37 4.986-.006 7.655a.277.277 0 0 1-.55 0c-.331-2.63-.256-5.02 0-7.655a.277.277 0 0 1 .556 0Zm-1.663-.257c.27 2.726.39 5.171 0 7.904a.266.266 0 0 1-.532 0c-.38-2.69-.257-5.21 0-7.904a.266.266 0 0 1 .532 0Zm-1.647.77a26.108 26.108 0 0 1-.008 7.147.272.272 0 0 1-.542 0 27.955 27.955 0 0 1 0-7.147.275.275 0 0 1 .55 0Zm-1.67 1.769c.421 1.865.228 3.5-.029 5.388a.257.257 0 0 1-.514 0c-.21-1.858-.398-3.549 0-5.389a.272.272 0 0 1 .543 0Zm-1.655-.273c.388 1.897.26 3.508-.01 5.412-.026.28-.514.283-.54 0-.244-1.878-.347-3.54-.01-5.412a.283.283 0 0 1 .56 0Zm-1.668.911c.4 1.268.257 2.292-.026 3.572a.257.257 0 0 1-.514 0c-.241-1.262-.354-2.312-.023-3.572a.283.283 0 0 1 .563 0Z"/>
+                            </svg>
+                        </a>
+                        <a class="button button-secondary button-hidden" id="chart-listen-bandcamp" href="">
+                            <svg class="button-icon" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <title>Check on Bandcamp</title>
+                                <path d="M0 18.75l7.437-13.5H24l-7.438 13.5H0z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </dialog>
+        <hr>
+        <footer>
+            Project R makes use of copyrighted material in a fair way, without intention of copyright infringement.<br>
+            Check the <a href="/projects/pjr/conduct">Project R Code of Conduct</a> for more information.
+            <br><br>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>
