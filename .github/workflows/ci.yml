@@ -23,7 +23,7 @@ jobs:
       uses: bcomnes/deploy-to-neocities@v3
       with:
         api_token: ${{ secrets.TIMECAPSULE_API_KEY }}
-        cleanup: true # remove deleted files
+        cleanup: false # don't remove deleted files (some assets are ignored but they don't have to be deleted every time)
         neocities_supporter: false # say that I'm not paying for this yet
         preview_before_deploy: true # print a deployment plan prior to waiting for files to upload
         dist_dir: time-capsule # publish only the time-capsule folder
