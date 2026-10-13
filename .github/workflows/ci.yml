@@ -1,0 +1,29 @@
+name: Deploy to Neocities
+
+# get changes from main
+on:
+  push:
+    branches:
+      - main
+
+# prevent concurrent deploys
+concurrency:
+  group: deploy-to-neocities
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    # copy to action runner
+    - uses: actions/checkout@v4
+    # deploy!
+    - name: Deploy to Neocities
+      uses: bcomnes/deploy-to-neocities@v3
+      with:
+        api_token: ${{ secrets.TIMECAPSULE_API_KEY }}
+        cleanup: true # remove deleted files
+        neocities_supporter: false # say that I'm not paying for this yet
+        preview_before_deploy: true # print a deployment plan prior to waiting for files to upload
+        dist_dir: time-capsule # publish only the time-capsule folder
