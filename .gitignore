@@ -1,7 +1,3 @@
 # ignore favicon and images
 time-capsule/favicon.png
 time-capsule/assets/images
-
-# ignore JSON data
-time-capsule/assets/ghrb-charts
-time-capsule/splashes.json
