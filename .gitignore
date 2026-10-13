@@ -1,3 +1,6 @@
 # ignore favicon and images
 time-capsule/favicon.png
 time-capsule/assets/images
+
+time-capsule/assets/ghrb-charts
+time-capsule/assets/splashes.json
