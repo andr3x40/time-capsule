@@ -1,0 +1,60 @@
+.music-dex {
+    display: flex;
+    flex-direction: row;
+
+    scroll-behavior: auto;
+    height: 300px;
+    
+    margin: 25px 0;
+}
+
+.music-dex .music-dex-entry {
+    display: flex;
+    flex-direction: row;
+    font-weight: 900;
+    font-style: italic;
+    font-variant-numeric: tabular-nums;
+    margin-top: 0;
+
+    width: 25px;
+    writing-mode: vertical-rl;
+
+    border: 2px solid var(--dark-700);
+}
+
+.music-dex-entry.empty-entry {
+    background: var(--dark-300);
+}
+
+.music-dex-entry.filled-entry {
+    background: var(--dark);
+}
+
+.music-dex-entry:hover {
+    width: 300px;
+    transform: translateY(-6px);
+}
+
+.music-dex-entry .entry-top {
+    height: 5%;
+    background: var(--light);
+}
+.music-dex-entry .entry-number {
+    height: 15%;
+    padding: 16px 0;
+    align-content: center;
+    font-size: large;
+    text-align: left;
+    color: var(--light);
+    background: var(--dark);
+}
+.music-dex-entry .entry-color {
+    height: 80%;
+}
+
+.music-dex-entry#module-1 {
+    background: var(--purple-400);
+}
+.music-dex-entry#module-2 {
+    background: var(--purple-600);
+}
