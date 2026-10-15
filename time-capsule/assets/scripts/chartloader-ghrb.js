@@ -26,7 +26,7 @@ function getShortIntensity(intensity) {
     const closerIntensity = Math.round(intensity)
     let displayIntensity = String(Math.trunc(intensity)).padStart(2, '0') // display the intensity with two numbers instead of one
     // if the rounded intensity is bigger, add a +
-    if (closerIntensity > intensity) {
+    if (intensity >= 1 && closerIntensity > intensity) {
         displayIntensity = displayIntensity + '&#8314'
     }
     return displayIntensity;
@@ -133,8 +133,10 @@ async function loadCharts() {
     await loadChartFile('gen1a.json'); // load gen 1 quality charts
     await loadChartFile('gen1b.json'); // load gen 1 other charts
     await loadChartFile('gen1c.json'); // load gen 1 meme charts
+    await loadChartFile('celestepack.json'); // load celeste ost pack
+    await loadChartFile('ytis1.json'); // load youtube italia sings 1.1.1
+    await loadChartFile('ytis2.json'); // load youtube italia sings 2
     // sort them by title
-    console.log(currentItems)
     currentItems.sort((a, b) => a.title.localeCompare(b.title, { sensitivity: 'base' }))
 }
 
@@ -263,6 +265,13 @@ function renderList(items) {
 ------------------------
 */
 
+function getLoadPhrase(phrases) {
+    if (phrases == undefined) return ""
+    localisedPhrases = phrases[navigator.language]
+    if (localisedPhrases == undefined) localisedPhrases = phrases["en-GB"]
+    return localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
+}
+
 // open the dialog for a certain item
 function openDialog(item) {
     let length = item.length ?? 0
@@ -301,7 +310,7 @@ function openDialog(item) {
     document.getElementById('chart-subtitle').textContent = item.subtitle ?? "";
     document.getElementById('chart-album-year-genre').textContent = `${item.album ?? "Single"}, ${item.year ?? "Unknown year"} - ${item.subgenre ?? "Unknown genre"}`;
     document.getElementById('chart-length-bpm').textContent = `${formatTime(item.length)} - ${displayBpmRange(item.bpmRange)} BPM`;
-    document.getElementById('chart-description').textContent = item.loadPhrases ? item.loadPhrases[getRandomInt(item.loadPhrases.length)] : ""
+    document.getElementById('chart-description').textContent = getLoadPhrase(item.loadPhrases);
     // then, write all the variants
     const chartVariants = document.getElementById('chart-variants')
     for (let i in instruments) {
@@ -352,7 +361,6 @@ function openDialog(item) {
         {id: "chart-listen-bandcamp", href: item.links?.bandcamp ?? null}
     ]
     const links = allLinks.filter(a => a.href !== null)
-    console.log(links)
     // load all possible links
     let onlyOneLink = links.length == 1
     if (onlyOneLink) {
