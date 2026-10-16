@@ -2,6 +2,7 @@ let currentItems = [];
 let filteredItems = [];
 let filters = {
     search: "",
+    source: "all",
     instrument: "leadGuitar5",
     difficulty: "expert"
 }
@@ -123,9 +124,9 @@ async function loadChartFile(file) {
             throw new Error(`${response.status}`);
         }
         let items = await response.json();
-        // for every item, add the file source in case the defined source is none
+        // for every item, rewrite the source to use a source code that checks both the source and the file source
         for (let item of items) {
-            item.fileSource = file;
+            item.sourceCode = getSourceCode(item.source, file);
         }
         currentItems = currentItems.concat(items)
     } catch (err) {
@@ -146,12 +147,17 @@ async function loadCharts() {
 
 function loadFilters() {
     filters.search = document.getElementById('filter-search').value.trim().toLowerCase();
+    filters.source = document.getElementById('filter-source').value;
     filters.instrument = document.getElementById('filter-instrument').value;
     filters.difficulty = document.getElementById('filter-difficulty').value;
 }
 
 function applySearchFilter() {
     filters.search = document.getElementById('filter-search').value.trim().toLowerCase();
+    renderFilteredList(currentItems)
+}
+function applySourceFilter() {
+    filters.source = document.getElementById('filter-source').value;
     renderFilteredList(currentItems)
 }
 function applyInstrumentFilter() {
@@ -164,16 +170,24 @@ function applyDifficultyFilter() {
 }
 
 function renderFilteredList(items) {
+    // filter by search
     if (filters.search.length == 0) {
         filteredItems = currentItems
     }
     else {
-        filteredItems = currentItems.filter(item => {
+        filteredItems = items.filter(item => {
             const matchesTitle = item.title.toLowerCase().includes(filters.search);
             const matchesArtist = item.artist.toLowerCase().includes(filters.search);
+
             return matchesTitle || matchesArtist;
         });
     }
+    // filter by other stuff
+    filteredItems = filteredItems.filter(item => {
+        const matchesSource = filters.source == "all" || item.sourceCode.toLowerCase() == filters.source;
+
+        return matchesSource;
+    });
     renderList(filteredItems)
 }
 
@@ -237,7 +251,10 @@ function renderList(items) {
         
         const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
 
+        const source = getSourceName(item.sourceCode);
+
         card.innerHTML = `
+            <div class="chart-marker marker-${item.sourceCode.toLowerCase()} with-tooltip" data-tooltip="${source}">${item.sourceCode}</div>
             <div class="chart-info">
                 <span class="artist">${artist ?? "Unknown Artist"}</span>
                 <h2 class="title">${item.title ?? "Untitled"}</h2>
@@ -245,7 +262,7 @@ function renderList(items) {
             </div>
             <div class="chart-difficulty">
                 <div class="difficulty difficulty-${difficultyTier}">
-                    <span class="difficulty-name" data-difficulty="${camelToTitleCase(filters.difficulty)}">${variantDisplay.difficulty ?? camelToTitleCase(filters.difficulty)}</span>
+                    <span class="difficulty-name">${variantDisplay.difficulty ?? camelToTitleCase(filters.difficulty)}</span>
                     <span class="intensity">${intensityDisplay}</span>
                 </div>
                 <div class="difficulty-ticks">
@@ -276,26 +293,38 @@ function getLoadPhrase(phrases) {
     return localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
 }
 
-function getSource(item) {
-    source = item.source;
+function getSourceCode(source, file) {
     if (source != null && source != undefined && source != "" && source != "0") {
         switch (source) {
-            case "yis1": return "YouTube Italia Sings 1.1.1";
-            case "yis2": return "YouTube Italia Sings 2";
-            case "celestepack": return "Celeste OST Pack";
-            case "m4p": return "Made4PoldHub Charts";
+            case "yis1": return "YT1";
+            case "yis2": return "YT2";
+            case "celestepack": return "CLST";
+            case "m4p": return "M4P";
             default: break;
         }
     }
     // if no source is defined, check the file
-    switch (item.fileSource) {
-        case "gen1a.json": return "Gen 1 Quality Charts";
-        case "gen1b.json": return "Gen 1 DLC";
-        case "gen1c.json": return "Gen 1 Quality Shitpost";
-        case "celestepack.json": return "Celeste OST Pack";
-        case "ytis1.json": return "YouTube Italia Sings 1.1.1";
-        case "ytis2.json": return "YouTube Italia Sings 2";
+    switch (file) {
+        case "gen1a.json": return "1A";
+        case "gen1b.json": return "1B";
+        case "gen1c.json": return "1C";
+        case "celestepack.json": return "CLST";
+        case "ytis1.json": return "YT1";
+        case "ytis2.json": return "YT2";
         default: return null; // failsafe in case another file is loaded
+    }
+}
+
+function getSourceName(sourceCode) {
+    if (sourceCode == null) return null;
+    switch (sourceCode) {
+        case "1A": return "Gen 1 Quality Charts";
+        case "1B": return "Gen 1 DLC";
+        case "1C": return "Gen 1 Quality Shitpost";
+        case "CLST": return "Celeste OST Pack";
+        case "YT1": return "YouTube Italia Sings 1.1.1";
+        case "YT2": return "YouTube Italia Sings 2";
+        default: return null; // failsafe, in case
     }
 }
 
@@ -341,12 +370,13 @@ function openDialog(item) {
     // now build the dialog
     // first, write the info of the chart
     const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
+    const source = getSourceName(item.sourceCode);
     document.getElementById('chart-jacket').src = item.links?.jacket ?? "/assets/images/placeholder.jpg";
     document.getElementById('chart-jacket').alt = item.album ?? "Single";
     document.getElementById('chart-artist').textContent = artist ?? "Unknown artist";
     document.getElementById('chart-title').textContent = item.title ?? "Untitled";
     document.getElementById('chart-subtitle').textContent = item.subtitle ?? "";
-    document.getElementById('chart-source').textContent = getSource(item) ?? "";
+    document.getElementById('chart-source').textContent = source ?? "";
     document.getElementById('chart-latest-update').textContent = getLatestUpdate(item.updates) ?? "";
     document.getElementById('chart-album-year-genre').textContent = `${item.album ?? "Single"}, ${item.year ?? "Unknown year"} - ${item.subgenre ?? "Unknown genre"}`;
     document.getElementById('chart-length-bpm').textContent = `${formatTime(item.length)} - ${displayBpmRange(item.bpmRange)} BPM`;
@@ -481,5 +511,6 @@ document.addEventListener('DOMContentLoaded', load);
 
 // render the list again when the search filter changes
 document.getElementById('filter-search').addEventListener('input', applySearchFilter);
+document.getElementById('filter-source').addEventListener('change', applySourceFilter);
 document.getElementById('filter-instrument').addEventListener('change', applyInstrumentFilter);
 document.getElementById('filter-difficulty').addEventListener('change', applyDifficultyFilter);

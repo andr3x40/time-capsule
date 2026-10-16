@@ -41,6 +41,15 @@
         <section>
             <div class="map-list-filters" id="map-list-filters">
                 <input type="text" class="search-box" id="filter-search" />
+                <select class="select-box" id="filter-source">
+                    <option value="all" selected>All Sources</option>
+                    <option value="1a">Gen 1 Quality Charts</option>
+                    <option value="1b">Gen 1 DLC</option>
+                    <option value="1c">Gen 1 Quality Shitpost</option>
+                    <option value="clst">Celeste OST Pack</option>
+                    <option value="yt1">YouTube Italia Sings 1</option>
+                    <option value="yt2">YouTube Italia Sings 2</option>
+                </select>
                 <select class="select-box" id="filter-instrument">
                     <option value="all">All GHRB instruments</option>
                     <option value="leadGuitar5" selected>5 Fret Lead Guitar</option>
@@ -65,6 +74,7 @@
             </div>
             <article class="map-list" id="map-list-container">
                 <div class="map-card">
+                    <div class="chart-marker"></div>
                     <div class="chart-info">
                         <span class="artist">Loading</span>
                         <h2 class="title">Loading</h2>
