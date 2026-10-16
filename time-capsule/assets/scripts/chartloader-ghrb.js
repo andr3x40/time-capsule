@@ -115,14 +115,18 @@ function displayBpmRange(bpmRange) {
 ----------------------
 */
 
-async function loadChartFile(file) { // load Gen 1 quality charts
+async function loadChartFile(file) {
     try {
         const response = await fetch(`/assets/ghrb-charts/${file}`);
         if (!response.ok) {
             console.error(`${response.status}`);
             throw new Error(`${response.status}`);
         }
-        const items = await response.json();
+        let items = await response.json();
+        // for every item, add the file source in case the defined source is none
+        for (let item of items) {
+            item.fileSource = file;
+        }
         currentItems = currentItems.concat(items)
     } catch (err) {
         console.error(`Error while loading ${file}:`, err);
@@ -272,6 +276,40 @@ function getLoadPhrase(phrases) {
     return localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
 }
 
+function getSource(item) {
+    source = item.source;
+    if (source != null && source != undefined && source != "" && source != "0") {
+        switch (source) {
+            case "yis1": return "YouTube Italia Sings 1.1.1";
+            case "yis2": return "YouTube Italia Sings 2";
+            case "celestepack": return "Celeste OST Pack";
+            case "m4p": return "Made4PoldHub Charts";
+            default: break;
+        }
+    }
+    // if no source is defined, check the file
+    switch (item.fileSource) {
+        case "gen1a.json": return "Gen 1 Quality Charts";
+        case "gen1b.json": return "Gen 1 DLC";
+        case "gen1c.json": return "Gen 1 Quality Shitpost";
+        case "celestepack.json": return "Celeste OST Pack";
+        case "ytis1.json": return "YouTube Italia Sings 1.1.1";
+        case "ytis2.json": return "YouTube Italia Sings 2";
+        default: return null; // failsafe in case another file is loaded
+    }
+}
+
+function getLatestUpdate(updates) {
+    if (updates === null || updates === undefined) return null;
+    const revision = updates.length - 1;
+    const isodate = updates[revision]; // get the date of the revision, saved in YYYYMMDD format (conforms to ISO 8601)
+    let y = isodate.slice(0, 4);
+    let m = isodate.slice(4, 6);
+    let d = isodate.slice(6, 8);
+    const date = new Date(y, m, d).toLocaleDateString();
+    return revision > 0 ? `Released ${date} (Revision ${revision})` : `Released ${date}`;
+}
+
 // open the dialog for a certain item
 function openDialog(item) {
     let length = item.length ?? 0
@@ -308,6 +346,8 @@ function openDialog(item) {
     document.getElementById('chart-artist').textContent = artist ?? "Unknown artist";
     document.getElementById('chart-title').textContent = item.title ?? "Untitled";
     document.getElementById('chart-subtitle').textContent = item.subtitle ?? "";
+    document.getElementById('chart-source').textContent = getSource(item) ?? "";
+    document.getElementById('chart-latest-update').textContent = getLatestUpdate(item.updates) ?? "";
     document.getElementById('chart-album-year-genre').textContent = `${item.album ?? "Single"}, ${item.year ?? "Unknown year"} - ${item.subgenre ?? "Unknown genre"}`;
     document.getElementById('chart-length-bpm').textContent = `${formatTime(item.length)} - ${displayBpmRange(item.bpmRange)} BPM`;
     document.getElementById('chart-description').textContent = getLoadPhrase(item.loadPhrases);
