@@ -41,6 +41,10 @@ function getInstrumentName(instrument) {
         case "leadGuitar6": return "6 Fret Lead Guitar"
         case "rhythmGuitar6": return "6 Fret Rhythm Guitar"
         case "bassGuitar6": return "6 Fret Bass Guitar"
+        case "keys5": return "5 Lane Keyboard"
+        case "keys6": return "6 Lane Keyboard"
+        case "drums": return "Drums"
+        case "proDrums": return "Pro Drums"
         default: return `Unknown (${instrument})`
     }
 }
@@ -53,6 +57,10 @@ function getDifficultyClass(instrument, difficulty) {
         case "leadGuitar6":
         case "rhythmGuitar6":
         case "bassGuitar6":
+        case "keys5":
+        case "keys6":
+        case "drums":
+        case "proDrums":
             switch (difficulty) {
                 case "easy": return 1;
                 case "medium": return 2;
