@@ -141,6 +141,7 @@ async function loadCharts() {
     await loadChartFile('celestepack.json'); // load celeste ost pack
     await loadChartFile('ytis1.json'); // load youtube italia sings 1.1.1
     await loadChartFile('ytis2.json'); // load youtube italia sings 2
+    await loadChartFile('m4p.json'); // load made4poldhub
     // sort them by title
     currentItems.sort((a, b) => a.title.localeCompare(b.title, { sensitivity: 'base' }))
 }
@@ -195,6 +196,9 @@ function renderFilteredList(items) {
 function renderList(items) {
     const container = document.getElementById('map-list-container');
     container.innerHTML = ''; // clear
+
+    // render the chart count
+    document.getElementById("chart-count").textContent = items.length;
     
     // render each chart left after filtering
     items.forEach((item, index) => {
@@ -249,7 +253,7 @@ function renderList(items) {
         
         const intensityDisplay = aggregate ? variantDisplay.intensity : getShortIntensity(variantDisplay.intensity);
         
-        const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
+        const artist = item.featurings ? `${item.artist} ft. ${item.featurings.join(', ')}` : item.artist;
 
         const source = getSourceName(item.sourceCode);
 
@@ -262,7 +266,7 @@ function renderList(items) {
             </div>
             <div class="chart-difficulty">
                 <div class="difficulty difficulty-${difficultyTier}">
-                    <span class="difficulty-name">${variantDisplay.difficulty ?? camelToTitleCase(filters.difficulty)}</span>
+                    <span class="difficulty-name" data-difficulty="${camelToTitleCase(filters.difficulty)}">${variantDisplay.difficulty ?? camelToTitleCase(filters.difficulty)}</span>
                     <span class="intensity">${intensityDisplay}</span>
                 </div>
                 <div class="difficulty-ticks">
@@ -287,10 +291,12 @@ function renderList(items) {
 */
 
 function getLoadPhrase(phrases) {
-    if (phrases == undefined) return ""
+    output = "";
+    if (phrases == undefined) return null;
     localisedPhrases = phrases[navigator.language]
     if (localisedPhrases == undefined) localisedPhrases = phrases["en-GB"]
-    return localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
+    output = localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
+    return output != "" ? output : null; // return null if there's nothing to display
 }
 
 function getSourceCode(source, file) {
@@ -311,6 +317,7 @@ function getSourceCode(source, file) {
         case "celestepack.json": return "CLST";
         case "ytis1.json": return "YT1";
         case "ytis2.json": return "YT2";
+        case "m4p.json": return "M4P";
         default: return null; // failsafe in case another file is loaded
     }
 }
@@ -324,6 +331,7 @@ function getSourceName(sourceCode) {
         case "CLST": return "Celeste OST Pack";
         case "YT1": return "YouTube Italia Sings 1.1.1";
         case "YT2": return "YouTube Italia Sings 2";
+        case "M4P": return "Made4PoldHub Charts";
         default: return null; // failsafe, in case
     }
 }
@@ -369,7 +377,7 @@ function openDialog(item) {
     }
     // now build the dialog
     // first, write the info of the chart
-    const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
+    const artist = item.featurings ? `${item.artist} ft. ${item.featurings.join(', ')}` : item.artist;
     const source = getSourceName(item.sourceCode);
     document.getElementById('chart-jacket').src = item.links?.jacket ?? "/assets/images/placeholder.jpg";
     document.getElementById('chart-jacket').alt = item.album ?? "Single";
@@ -380,7 +388,7 @@ function openDialog(item) {
     document.getElementById('chart-latest-update').textContent = getLatestUpdate(item.updates) ?? "";
     document.getElementById('chart-album-year-genre').textContent = `${item.album ?? "Single"}, ${item.year ?? "Unknown year"} - ${item.subgenre ?? "Unknown genre"}`;
     document.getElementById('chart-length-bpm').textContent = `${formatTime(item.length)} - ${displayBpmRange(item.bpmRange)} BPM`;
-    document.getElementById('chart-description').textContent = getLoadPhrase(item.loadPhrases);
+    document.getElementById('chart-description').textContent = getLoadPhrase(item.loadPhrases) ?? "No description. This is embarassing.";
     // then, write all the variants
     const chartVariants = document.getElementById('chart-variants')
     for (let i in instruments) {

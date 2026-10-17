@@ -48,7 +48,7 @@ div.page {
 }
 
 /* section - glass pane */
-section, header {
+section, header, .box {
     background: linear-gradient(125deg, rgb(from var(--glass-tint) r g b / 0.08), rgb(from var(--glass-tint) r g b / 0.02) );
     border-radius: 6px;
     border: 1px solid rgb(from var(--glass-border) r g b / 0.5);
