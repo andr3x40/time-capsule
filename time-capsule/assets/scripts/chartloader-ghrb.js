@@ -2,6 +2,7 @@ let currentItems = [];
 let filteredItems = [];
 let filters = {
     search: "",
+    source: "all",
     instrument: "leadGuitar5",
     difficulty: "expert"
 }
@@ -26,7 +27,7 @@ function getShortIntensity(intensity) {
     const closerIntensity = Math.round(intensity)
     let displayIntensity = String(Math.trunc(intensity)).padStart(2, '0') // display the intensity with two numbers instead of one
     // if the rounded intensity is bigger, add a +
-    if (closerIntensity > intensity) {
+    if (intensity >= 1 && closerIntensity > intensity) {
         displayIntensity = displayIntensity + '&#8314'
     }
     return displayIntensity;
@@ -115,14 +116,18 @@ function displayBpmRange(bpmRange) {
 ----------------------
 */
 
-async function loadChartFile(file) { // load Gen 1 quality charts
+async function loadChartFile(file) {
     try {
         const response = await fetch(`/assets/ghrb-charts/${file}`);
         if (!response.ok) {
             console.error(`${response.status}`);
             throw new Error(`${response.status}`);
         }
-        const items = await response.json();
+        let items = await response.json();
+        // for every item, rewrite the source to use a source code that checks both the source and the file source
+        for (let item of items) {
+            item.sourceCode = getSourceCode(item.source, file);
+        }
         currentItems = currentItems.concat(items)
     } catch (err) {
         console.error(`Error while loading ${file}:`, err);
@@ -133,19 +138,27 @@ async function loadCharts() {
     await loadChartFile('gen1a.json'); // load gen 1 quality charts
     await loadChartFile('gen1b.json'); // load gen 1 other charts
     await loadChartFile('gen1c.json'); // load gen 1 meme charts
+    await loadChartFile('celestepack.json'); // load celeste ost pack
+    await loadChartFile('ytis1.json'); // load youtube italia sings 1.1.1
+    await loadChartFile('ytis2.json'); // load youtube italia sings 2
+    await loadChartFile('m4p.json'); // load made4poldhub
     // sort them by title
-    console.log(currentItems)
     currentItems.sort((a, b) => a.title.localeCompare(b.title, { sensitivity: 'base' }))
 }
 
 function loadFilters() {
     filters.search = document.getElementById('filter-search').value.trim().toLowerCase();
+    filters.source = document.getElementById('filter-source').value;
     filters.instrument = document.getElementById('filter-instrument').value;
     filters.difficulty = document.getElementById('filter-difficulty').value;
 }
 
 function applySearchFilter() {
     filters.search = document.getElementById('filter-search').value.trim().toLowerCase();
+    renderFilteredList(currentItems)
+}
+function applySourceFilter() {
+    filters.source = document.getElementById('filter-source').value;
     renderFilteredList(currentItems)
 }
 function applyInstrumentFilter() {
@@ -158,16 +171,24 @@ function applyDifficultyFilter() {
 }
 
 function renderFilteredList(items) {
+    // filter by search
     if (filters.search.length == 0) {
         filteredItems = currentItems
     }
     else {
-        filteredItems = currentItems.filter(item => {
+        filteredItems = items.filter(item => {
             const matchesTitle = item.title.toLowerCase().includes(filters.search);
             const matchesArtist = item.artist.toLowerCase().includes(filters.search);
+
             return matchesTitle || matchesArtist;
         });
     }
+    // filter by other stuff
+    filteredItems = filteredItems.filter(item => {
+        const matchesSource = filters.source == "all" || item.sourceCode.toLowerCase() == filters.source;
+
+        return matchesSource;
+    });
     renderList(filteredItems)
 }
 
@@ -175,6 +196,9 @@ function renderFilteredList(items) {
 function renderList(items) {
     const container = document.getElementById('map-list-container');
     container.innerHTML = ''; // clear
+
+    // render the chart count
+    document.getElementById("chart-count").textContent = items.length;
     
     // render each chart left after filtering
     items.forEach((item, index) => {
@@ -229,9 +253,12 @@ function renderList(items) {
         
         const intensityDisplay = aggregate ? variantDisplay.intensity : getShortIntensity(variantDisplay.intensity);
         
-        const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
+        const artist = item.featurings ? `${item.artist} ft. ${item.featurings.join(', ')}` : item.artist;
+
+        const source = getSourceName(item.sourceCode);
 
         card.innerHTML = `
+            <div class="chart-marker marker-${item.sourceCode.toLowerCase()} with-tooltip" data-tooltip="${source}">${item.sourceCode}</div>
             <div class="chart-info">
                 <span class="artist">${artist ?? "Unknown Artist"}</span>
                 <h2 class="title">${item.title ?? "Untitled"}</h2>
@@ -263,6 +290,63 @@ function renderList(items) {
 ------------------------
 */
 
+function getLoadPhrase(phrases) {
+    output = "";
+    if (phrases == undefined) return null;
+    localisedPhrases = phrases[navigator.language]
+    if (localisedPhrases == undefined) localisedPhrases = phrases["en-GB"]
+    output = localisedPhrases ? localisedPhrases[getRandomInt(localisedPhrases.length)] : phrases[getRandomInt(phrases.length)]
+    return output != "" ? output : null; // return null if there's nothing to display
+}
+
+function getSourceCode(source, file) {
+    if (source != null && source != undefined && source != "" && source != "0") {
+        switch (source) {
+            case "yis1": return "YT1";
+            case "yis2": return "YT2";
+            case "celestepack": return "CLST";
+            case "m4p": return "M4P";
+            default: break;
+        }
+    }
+    // if no source is defined, check the file
+    switch (file) {
+        case "gen1a.json": return "1A";
+        case "gen1b.json": return "1B";
+        case "gen1c.json": return "1C";
+        case "celestepack.json": return "CLST";
+        case "ytis1.json": return "YT1";
+        case "ytis2.json": return "YT2";
+        case "m4p.json": return "M4P";
+        default: return null; // failsafe in case another file is loaded
+    }
+}
+
+function getSourceName(sourceCode) {
+    if (sourceCode == null) return null;
+    switch (sourceCode) {
+        case "1A": return "Gen 1 Quality Charts";
+        case "1B": return "Gen 1 DLC";
+        case "1C": return "Gen 1 Quality Shitpost";
+        case "CLST": return "Celeste OST Pack";
+        case "YT1": return "YouTube Italia Sings 1.1.1";
+        case "YT2": return "YouTube Italia Sings 2";
+        case "M4P": return "Made4PoldHub Charts";
+        default: return null; // failsafe, in case
+    }
+}
+
+function getLatestUpdate(updates) {
+    if (updates === null || updates === undefined) return null;
+    const revision = updates.length - 1;
+    const isodate = updates[revision]; // get the date of the revision, saved in YYYYMMDD format (conforms to ISO 8601)
+    let y = isodate.slice(0, 4);
+    let m = isodate.slice(4, 6);
+    let d = isodate.slice(6, 8);
+    const date = new Date(y, m, d).toLocaleDateString();
+    return revision > 0 ? `Released ${date} (Revision ${revision})` : `Released ${date}`;
+}
+
 // open the dialog for a certain item
 function openDialog(item) {
     let length = item.length ?? 0
@@ -293,15 +377,18 @@ function openDialog(item) {
     }
     // now build the dialog
     // first, write the info of the chart
-    const artist = item.featurings ? `${item.artist} ft. ${item.featurings}` : item.artist;
+    const artist = item.featurings ? `${item.artist} ft. ${item.featurings.join(', ')}` : item.artist;
+    const source = getSourceName(item.sourceCode);
     document.getElementById('chart-jacket').src = item.links?.jacket ?? "/assets/images/placeholder.jpg";
     document.getElementById('chart-jacket').alt = item.album ?? "Single";
     document.getElementById('chart-artist').textContent = artist ?? "Unknown artist";
     document.getElementById('chart-title').textContent = item.title ?? "Untitled";
     document.getElementById('chart-subtitle').textContent = item.subtitle ?? "";
+    document.getElementById('chart-source').textContent = source ?? "";
+    document.getElementById('chart-latest-update').textContent = getLatestUpdate(item.updates) ?? "";
     document.getElementById('chart-album-year-genre').textContent = `${item.album ?? "Single"}, ${item.year ?? "Unknown year"} - ${item.subgenre ?? "Unknown genre"}`;
     document.getElementById('chart-length-bpm').textContent = `${formatTime(item.length)} - ${displayBpmRange(item.bpmRange)} BPM`;
-    document.getElementById('chart-description').textContent = item.loadPhrases ? item.loadPhrases[getRandomInt(item.loadPhrases.length)] : ""
+    document.getElementById('chart-description').textContent = getLoadPhrase(item.loadPhrases) ?? "No description. This is embarassing.";
     // then, write all the variants
     const chartVariants = document.getElementById('chart-variants')
     for (let i in instruments) {
@@ -352,7 +439,6 @@ function openDialog(item) {
         {id: "chart-listen-bandcamp", href: item.links?.bandcamp ?? null}
     ]
     const links = allLinks.filter(a => a.href !== null)
-    console.log(links)
     // load all possible links
     let onlyOneLink = links.length == 1
     if (onlyOneLink) {
@@ -433,5 +519,6 @@ document.addEventListener('DOMContentLoaded', load);
 
 // render the list again when the search filter changes
 document.getElementById('filter-search').addEventListener('input', applySearchFilter);
+document.getElementById('filter-source').addEventListener('change', applySourceFilter);
 document.getElementById('filter-instrument').addEventListener('change', applyInstrumentFilter);
 document.getElementById('filter-difficulty').addEventListener('change', applyDifficultyFilter);
