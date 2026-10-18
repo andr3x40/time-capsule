@@ -1,57 +1,63 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 	<channel>
 		<title>time capsule devlog - andr3x's time capsule</title>
 		<link>https://andr3x40.neocities.org</link>
 		<description>andr3x's time capsule</description>
 		<webMaster>andreabnc.40@gmail.com (Andrea)</webMaster>
+		<atom:link href="http://andr3x40.neocities.org/feeds/tc-devlog.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 			<title>Devlog 5 - GitHub Integration</title>
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post5</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post5</guid>
 			<description>
 				If you're seeing this post, it means this website finally has a repository and automatic deployment through GitHub!
 			</description>
-			<pubDate>Tue, 13 Oct 2026 18:00:00 CEST</pubDate>
+			<pubDate>Tue, 13 Oct 2026 18:00:00 +0200</pubDate>
 		</item>
 
 		<item>
 			<title>Devlog 4 - Implementing Aero</title>
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post4</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post4</guid>
 			<description>
                 It was coming from the start. This website will have an Aero theme.
 			</description>
-			<pubDate>Thu, 08 Oct 2026 18:00:00 CEST</pubDate>
+			<pubDate>Thu, 08 Oct 2026 18:00:00 +0200</pubDate>
 		</item>
 
 		<item>
 			<title>Devlog 3 - Understanding Aero</title>
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post3</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post3</guid>
 			<description>
                 It was coming from the start. This website will have an Aero theme.
 			</description>
-			<pubDate>Fri, 18 Sep 2026 18:00:00 CEST</pubDate>
+			<pubDate>Fri, 18 Sep 2026 18:00:00 +0200</pubDate>
 		</item>
 
 		<item>
 			<title>Devlog 2 - Static &amp; Dynamic</title>
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post2</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post2</guid>
 			<description>
                 You have NO idea how much time it took for me to create a working list with search options and dialogue boxes.
 				I was so used to Bootstrap or PrimeNG (I was using Angular back then) and... man, this is complicated.
             </description>
-			<pubDate>Sun, 13 Sep 2026 18:00:00 CEST</pubDate>
+			<pubDate>Sun, 13 Sep 2026 18:00:00 +0200</pubDate>
 		</item>
 
 		<item>
 			<title>Devlog 1 - Basics</title>
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post1</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post1</guid>
 			<description>
                 I've been working on this website for three days now.
 				Now I'm simply creating the pages and then I'll fill everything in once I know how to structure it. 
             </description>
-			<pubDate>Wed, 26 Ago 2026 18:00:00 CEST</pubDate>
+			<pubDate>Wed, 26 Aug 2026 18:00:00 +0200</pubDate>
 		</item>
 
 	</channel>

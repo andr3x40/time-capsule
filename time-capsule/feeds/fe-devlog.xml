@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 	<channel>
 		<title>flame editor devlog - andr3x's time capsule</title>
 		<link>https://andr3x40.neocities.org</link>
 		<description>andr3x's time capsule</description>
 		<webMaster>andreabnc.40@gmail.com (Andrea)</webMaster>
+		<atom:link href="http://andr3x40.neocities.org/feeds/fe-devlog.xml" rel="self" type="application/rss+xml" />
 
 		<item>
 			<title>Version 0.10 - Recap</title>
 			<link>https://andr3x40.neocities.org/devlogs/flame-editor#post0</link>
+			<guid>https://andr3x40.neocities.org/devlogs/flame-editor#post0</guid>
 			<description>
 				As of now, this project is in hiatus. Kind of, because I'm still thinking about what to do and how to do it.
 			</description>
-			<pubDate>Thu, 27 Ago 2026 18:00:00 CEST</pubDate>
+			<pubDate>Thu, 27 Aug 2026 18:00:00 +0200</pubDate>
 		</item>
 
 	</channel>
