@@ -11,6 +11,7 @@
         <script type="text/javascript" src="/assets/components/navbar.js"></script>
         <!-- load scripts -->
         <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
         <!-- load theme -->
         <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
         <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
@@ -40,7 +41,9 @@
         </div>
         <div class="sidebar-container">
             <section class="sidebar">
+                <button class="button-rss" onclick="getRssFeedLink('rss-link-text', 'https://andr3x40.neocities.org/feeds/tc-devlog.rss')"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Feed-icon.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" height="12px"/> <span id="rss-link-text">Subscribe</span></button>
                 <h4>Version 1</h4>
+                <a href="#post6">RSS is Really Simple</a>
                 <a href="#post5">GitHub Integration</a>
                 <a href="#post4">Implementing Aero</a>
                 <a href="#post3">Understanding Aero</a>
@@ -48,6 +51,26 @@
                 <a href="#post1">Basics</a>
             </section>
             <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post6" class="title">Devlog 6 - RSS is Really Simple</h2>
+                        <span class="date" data-d="18" data-m="10" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Finally, I created RSS feeds for my blog and devlogs. The problem is that the preview doesn't work as I'd like to because
+                            it shows the entire page. Basically, I need to reorganize everything for that.
+                        </p>
+                        <p>
+                            Apparently, creating an RSS feed is incredibly simple and subscribing to one is simple as well. Shoutouts to <a href="https://archive.doqmeat.com/notebook/tutorials/rss">this guide by des (doqmeat)</a>
+                            who explained everything in the best way possible.
+                        </p>
+                        <p>
+                            I'm also testing a reader on my Telegram channel where I used to have a mini blog in Italian because I want to use that as well. This means I'll have to work on two separate feeds
+                            in English and Italian. Maintaining this will be painful.
+                        </p>
+                    </div>
+                </article>
                 <article class="post">
                     <div class="post-header">
                         <h2 id="post5" class="title">Devlog 5 - GitHub Integration</h2>

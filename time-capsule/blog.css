@@ -115,3 +115,13 @@
     text-align: center;
     margin: 15px 0;
 }
+
+button.button-rss {
+    font-size: small;
+    font-family: inherit;
+    font-weight: 800;
+    background: linear-gradient(to bottom, var(--orange-50) 0, var(--orange-100) 3%, var(--orange-200) 20%, var(--orange-300) 48%, var(--orange-400) 52%);
+    border: var(--orange-100) solid 1px;
+
+    margin-bottom: 5px;
+}

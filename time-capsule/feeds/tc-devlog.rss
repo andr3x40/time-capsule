@@ -2,11 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 
 	<channel>
-		<title>time capsule devlog - andr3x's time capsule</title>
+		<title>andr3x's time capsule - website devlog</title>
 		<link>https://andr3x40.neocities.org</link>
 		<description>andr3x's time capsule</description>
 		<webMaster>andreabnc.40@gmail.com (Andrea)</webMaster>
 		<atom:link href="https://andr3x40.neocities.org/feeds/tc-devlog.rss" rel="self" type="application/rss+xml" />
+
+		<item>
+			<title>Devlog 6 - RSS is Really Simple</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post5</link>
+			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post5</guid>
+			<description>
+				Finally, I created RSS feeds for my blog and devlogs.
+				The problem is that the preview doesn't work as I'd like to because it shows the entire page.
+				Basically, I need to reorganize everything for that.
+			</description>
+			<pubDate>Sun, 18 Oct 2026 18:00:00 +0200</pubDate>
+		</item>
 
 		<item>
 			<title>Devlog 5 - GitHub Integration</title>
@@ -23,7 +35,7 @@
 			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post4</link>
 			<guid>https://andr3x40.neocities.org/devlogs/time-capsule#post4</guid>
 			<description>
-                It was coming from the start. This website will have an Aero theme.
+                After a quick research on Wikipedia, I learned that the Aero style is characterised by bright colours and skeuomorphism.
 			</description>
 			<pubDate>Thu, 08 Oct 2026 18:00:00 +0200</pubDate>
 		</item>
