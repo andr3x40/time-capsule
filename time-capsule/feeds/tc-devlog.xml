@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+	<channel>
+		<title>time capsule devlog - andr3x's time capsule</title>
+		<link>https://andr3x40.neocities.org</link>
+		<description>andr3x's time capsule</description>
+		<webMaster>andreabnc.40@gmail.com (Andrea)</webMaster>
+
+		<item>
+			<title>Devlog 5 - GitHub Integration</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post5</link>
+			<description>
+				If you're seeing this post, it means this website finally has a repository and automatic deployment through GitHub!
+			</description>
+			<pubDate>Tue, 13 Oct 2026 18:00:00 CEST</pubDate>
+		</item>
+
+		<item>
+			<title>Devlog 4 - Implementing Aero</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post4</link>
+			<description>
+                It was coming from the start. This website will have an Aero theme.
+			</description>
+			<pubDate>Thu, 08 Oct 2026 18:00:00 CEST</pubDate>
+		</item>
+
+		<item>
+			<title>Devlog 3 - Understanding Aero</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post3</link>
+			<description>
+                It was coming from the start. This website will have an Aero theme.
+			</description>
+			<pubDate>Fri, 18 Sep 2026 18:00:00 CEST</pubDate>
+		</item>
+
+		<item>
+			<title>Devlog 2 - Static &amp; Dynamic</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post2</link>
+			<description>
+                You have NO idea how much time it took for me to create a working list with search options and dialogue boxes.
+				I was so used to Bootstrap or PrimeNG (I was using Angular back then) and... man, this is complicated.
+            </description>
+			<pubDate>Sun, 13 Sep 2026 18:00:00 CEST</pubDate>
+		</item>
+
+		<item>
+			<title>Devlog 1 - Basics</title>
+			<link>https://andr3x40.neocities.org/devlogs/time-capsule#post1</link>
+			<description>
+                I've been working on this website for three days now.
+				Now I'm simply creating the pages and then I'll fill everything in once I know how to structure it. 
+            </description>
+			<pubDate>Wed, 26 Ago 2026 18:00:00 CEST</pubDate>
+		</item>
+
+	</channel>
+</rss>

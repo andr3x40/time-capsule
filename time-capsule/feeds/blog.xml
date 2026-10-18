@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+
+	<channel>
+		<title>blog - andr3x's time capsule</title>
+		<link>https://andr3x40.neocities.org</link>
+		<description>andr3x's time capsule</description>
+		<webMaster>andreabnc.40@gmail.com (Andrea)</webMaster>
+
+		<item>
+			<title>Doing a Blog in 2026</title>
+			<link>https://andr3x40.neocities.org/blog#post1</link>
+			<description>
+                Exactly. You're seeing a blog in 2026, like the good old days. It's for the better, trust me.
+            </description>
+			<pubDate>Sun, 20 Sep 2026 18:00:00 CEST</pubDate>
+		</item>
+
+	</channel>
+</rss>
