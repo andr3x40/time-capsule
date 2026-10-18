@@ -122,7 +122,12 @@ button.button-rss {
     font-weight: 800;
     background: linear-gradient(to bottom, var(--orange-50) 0, var(--orange-100) 3%, var(--orange-200) 20%, var(--orange-300) 48%, var(--orange-400) 52%);
     border: var(--orange-100) solid 1px;
-    color: var(--text);
+    color: var(--light);
 
     margin-bottom: 5px;
+}
+
+button.button-rss:hover {
+    background: linear-gradient(to bottom, var(--orange-200) 5%, var(--orange-300) 48%, var(--orange-400) 52%, var(--orange-300) 97%, var(--orange-200) 100%);
+    border: var(--orange-100) solid 1px;
 }
