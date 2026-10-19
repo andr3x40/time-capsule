@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; <a href="/devlogs/time-capsule">Time Capsule</a>
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 class="title">Devlog 4 - Implementing Aero</h2>
+                        <span class="date" data-d="8" data-m="10" data-y="2026">2026-10-08</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            After a quick research on Wikipedia, I learned that the Aero style is characterised by bright colours and skeuomorphism.
+                        </p>
+                        <p>
+                            That second box was already checked because I was creating some glassy textures, but I was missing the first one.<br>
+                            You see... I like a dark theme for my website. But... yeah, Aero was definetely a light theme. So, I adapted the entire website's colours to support both.
+                        </p>
+                        <p>
+                            Since I spend a lot of time in front of a screen because every single thing I like to do involves a computer of some sort,
+                            I love having a dark theme that doesn't fry my retinas even more.
+                        </p>
+                        <p>
+                            Of course, I tried to give my own spin to an Aero theme and created this beauty that works even in the dark, but I feel I need to create a test page to see
+                            all of my components in action.
+                        </p>
+                        <p>
+                            With theming crossed from my list of things, what's left now is:
+                            <ul>
+                                <li>setting up an <strong>RSS feed</strong> for blog and devlogs</li>
+                                <li>creating the <strong>Music</strong> page for my playlists</li>
+                                <li>filling up the list of <strong>Clone Hero charts</strong></li>
+                                <li>creating the <strong>Luna</strong> theme</li>
+                            </ul>
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>

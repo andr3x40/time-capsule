@@ -9,6 +9,7 @@
         <link rel="icon" href="/favicon.png">
         <!-- load components -->
         <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/blog-sidebar.js"></script>
         <!-- load scripts -->
         <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
         <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
@@ -33,18 +34,8 @@
             <a href="/">Home</a> &blacktriangleright; Blog
         </div>
         <hr>
-        <div class="box info-box timezone">
-            <span>
-                Every date and time you may see here is in <a href="https://en.wikipedia.org/wiki/Central_European_Time" class="with-tooltip" data-tooltip="Central Europe Time (UTC+1)">CET</a>
-                or <a href="https://en.wikipedia.org/wiki/Central_European_Summer_Time" class="with-tooltip" data-tooltip="Central Europe Summer Time (UTC+2)">CEST</a>
-            </span>
-        </div>
         <div class="sidebar-container">
-            <section class="sidebar">
-                <button class="button-rss" onclick="getRssFeedLink('rss-link-text', 'https://andr3x40.neocities.org/feeds/blog.rss')"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Feed-icon.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" height="12px"/> <span id="rss-link-text">Subscribe</span></button>
-                <h4>September 2026</h4>
-                <a href="#post1">Doing a Blog in 2026</a>
-            </section>
+            <tc-blog-sidebar></tc-blog-sidebar>
             <section class="main">
                 <article class="post">
                     <div class="post-header">

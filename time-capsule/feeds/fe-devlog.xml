@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>https://andr3x40.neocities.org/devlogs/flame-editor/</id>
+	<title>andr3x's time capsule - flame editor devlog</title>
+	<updated>2026-08-27T18:00:00+02:00</updated>
+	<author>
+		<name>andr3x40 (Andrea)</name>
+        <email>andreabnc.40@gmail.com</email>
+	</author>
+    <icon>https://andr3x40.neocities.org/favicon.png</icon>
+	<link href="https://andr3x40.neocities.org/feeds/fe-devlog.xml" rel="self" type="application/atom+xml"/>
+
+	<entry>
+		<id>https://andr3x40.neocities.org/devlogs/flame-editor/2026-08/27.html"</id>
+		<link href="https://andr3x40.neocities.org/blog/2026-08/27.html"/>
+		<title>Version 0.10 - Recap</title>
+		<published>2026-08-27T18:00:00+02:00</published>
+		<summary>As of now, this project is in hiatus. Kind of, because I'm still thinking about what to do and how to do it.</summary>
+        <category term="version-0.10"/>
+	</entry>
+</feed>

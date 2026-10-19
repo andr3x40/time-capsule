@@ -143,6 +143,7 @@ nav a.home:hover {
 
 /* buttons */
 button, a.button {
+    font-family: inherit;
     border-radius: 5px;
     padding: 2px 15px;
     font-weight: 600;

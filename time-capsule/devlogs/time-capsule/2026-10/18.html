@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; <a href="/devlogs/time-capsule">Time Capsule</a>
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 class="title">Devlog 6 - RSS is Really Simple</h2>
+                        <span class="date" data-d="18" data-m="10" data-y="2026">2026-10-18</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Finally, I created RSS feeds for my blog and devlogs. The problem is that the preview doesn't work as I'd like to because
+                            it shows the entire page. Basically, I need to reorganize everything for that.
+                        </p>
+                        <p>
+                            Apparently, creating an RSS feed is incredibly simple and subscribing to one is simple as well. Shoutouts to <a href="https://archive.doqmeat.com/notebook/tutorials/rss">this guide by des (doqmeat)</a>
+                            who explained everything in the best way possible.
+                        </p>
+                        <p>
+                            I'm also testing a reader on my Telegram channel where I used to have a mini blog in Italian because I want to use that as well. This means I'll have to work on two separate feeds
+                            in English and Italian. Maintaining this will be painful.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>

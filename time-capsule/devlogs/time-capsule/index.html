@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; Time Capsule
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="v1" class="title">Version 1</h2>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            For the beginning, I'm focusing on the most important aspects of this website.<br>
+                            I want it to be functional <em>at least on desktops</em>. Making a responsive website is not really that easy, considering there's a lot of
+                            different mobile devices out there.
+                        </p>
+                        <p>
+                            Making a static website using every single feature HTML, CSS and JavaScript have to offer can be complex.
+                            But if this is the price to pay for having something I can easily call "personal", then I'm up for it.<br>
+                        </p>
+                        <p>
+                            Doesn't really help me when I only learned how to do <em>dynamic</em> websites, with databases and stuff, but I can come up with something. In fact, I already did.
+                        </p>
+                        <hr>
+                        <h3>Devlog Entries</h3>
+                        <ul>
+                            <li><span class="date" data-d="18" data-m="10" data-y="2026">2026-10-18</span>: <a href="/devlogs/time-capsule/2026-10/18">RSS is Really Simple</a></li>
+                            <li><span class="date" data-d="13" data-m="10" data-y="2026">2026-10-13</span>: <a href="/devlogs/time-capsule/2026-10/18">GitHub Integration</a></li>
+                            <li><span class="date" data-d="8"  data-m="10" data-y="2026">2026-10-08</span>: <a href="/devlogs/time-capsule/2026-10/08">Implementing Aero</a></li>
+                            <li><span class="date" data-d="18" data-m="9"  data-y="2026">2026-09-18</span>: <a href="/devlogs/time-capsule/2026-09/18">Understanding Aero</a></li>
+                            <li><span class="date" data-d="13" data-m="9"  data-y="2026">2026-09-13</span>: <a href="/devlogs/time-capsule/2026-09/13">Static &amp; Dynamic</a></li>
+                            <li><span class="date" data-d="26" data-m="8"  data-y="2026">2026-08-26</span>: <a href="/devlogs/time-capsule/2026-08/26">Basics</a></li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>

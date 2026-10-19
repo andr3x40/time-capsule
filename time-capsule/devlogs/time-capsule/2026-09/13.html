@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; <a href="/devlogs/time-capsule">Time Capsule</a>
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 class="title">Devlog 2 - Static &amp; Dynamic</h2>
+                        <span class="date" data-d="13" data-m="9" data-y="2026">2026-09-13</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            You have NO idea how much time it took for me to create a working list with search options and dialogue boxes.
+                            I was so used to Bootstrap or PrimeNG (I was using Angular back then) and... man, this is complicated.
+                        </p>
+                        <p>
+                            Long story short: for <a href="/projects/pjr">Project R</a> I had to create a list system to display all of my charts I made for Clone Hero.
+                            I had to create some way to not display too many information at once, but show everything needed with the click of a button, but more importantly...<br>
+                            I had to learn how to create something that would work dynamically. <strong>In a static website.</strong>
+                        </p>
+                        <p>
+                            The reason is simple: I have <em>soooo</em> many charts (around 250) that I need to lay down in a single page. There's a lot of problems in doing it one by one:
+                            <ul>
+                                <li>I have a lot of info and data to show, so I have to display them in a way that's not overwhelming (I like minimalism)</li>
+                                <li>That data may change in the future because I may release fixes to the charts</li>
+                                <li>An entire page could weigh a whole MB</li>
+                            </ul>
+                            And because of this, I put every data inside a JSON file, made a JavaScript to read that file and created the list dynamically using a template.
+                            Then I placed a dialogue box for all info to show (took me two days to get the design right) and added filters and a search box.
+                        </p>
+                        <p>
+                            And now, that thing works beautifully. All the data is messed up and there's only 60 charts, but I'll fill all the correct data afterwards.
+                        </p>
+                        <p>
+                            I'm not adding pagination because there's a search box and the list is compact enough for me to not care much, but I'll add more filters (and sorting, obviously).
+                            But now I'm going to waste time on Binding of Isaac, sorry.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>

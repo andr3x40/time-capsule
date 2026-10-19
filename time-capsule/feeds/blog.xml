@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<id>https://andr3x40.neocities.org/blog/</id>
+	<title>andr3x's time capsule - blog</title>
+	<updated>2026-10-19T12:30:00+02:00</updated>
+	<author>
+		<name>andr3x40 (Andrea)</name>
+        <email>andreabnc.40@gmail.com</email>
+	</author>
+    <icon>https://andr3x40.neocities.org/favicon.png</icon>
+	<link href="https://andr3x40.neocities.org/feeds/blog.xml" rel="self" type="application/atom+xml"/>
+
+	<entry>
+		<id>https://andr3x40.neocities.org/blog/2026-09/20.html"</id>
+		<link href="https://andr3x40.neocities.org/blog/2026-09/20.html"/>
+		<title>Doing a Blog in 2026</title>
+		<published>2026-09-20T18:00:00+02:00</published>
+        <updated>2026-10-19T12:30:00+02:00</updated>
+		<summary>Like the good old days.</summary>
+        <category term="personal"/>
+	</entry>
+</feed>

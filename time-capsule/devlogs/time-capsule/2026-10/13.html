@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; <a href="/devlogs/time-capsule">Time Capsule</a>
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 class="title">Devlog 5 - GitHub Integration</h2>
+                        <span class="date" data-d="13" data-m="10" data-y="2026">2026-10-13s</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            If you're seeing this post, it means this website finally has a repository and automatic deployment through GitHub!
+                        </p>
+                        <p>
+                            It was getting hard to develop only using Neocities, even if it was working pretty well. The problem is that I like using git and I like having
+                            stuff functional but not ready to be published.<br>
+                            Also, I reached a point where I have to refresh my browser's cache every five minutes when I'm doing changes.
+                            That's not a very big issue at the moment, but I don't want to waste widthband at any given time, even if I have plenty of it.
+                        </p>
+                        <p>
+                            I'm pretty used to having an IDE to do these things and using Neocities's in-built editor is limiting. I can't edit multiple files without mixing them up, which
+                            is something that happens quite frequently.<br>
+                            Luckily, Neocities has an API that I can use to edit locally and then deploy the website when all the changes are ready. Because I like it this way.
+                        </p>
+                        <p>
+                            If you're curious about how I did this, I followed <a href="https://deadrodrick.neocities.org/tutorial/deploy-to-neocities">this guide by DeadRodrick on Neocities</a> along with
+                            <a href="https://github.com/marketplace/actions/deploy-to-neocities#usage">the documentation for the GitHub action</a> so I can set this up the way I like it.
+                        </p>
+                        <p class="small-text">
+                            ...guess who messed up his first deploys?
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>
