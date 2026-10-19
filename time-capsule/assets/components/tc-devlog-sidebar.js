@@ -6,6 +6,7 @@ class TCDevlogSidebar extends HTMLElement {
             <section class="sidebar">
                 <button class="button-rss" onclick="getRssFeedLink('rss-link-text', 'https://andr3x40.neocities.org/feeds/tc-devlog.xml')"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Feed-icon.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" height="12px"/> <span id="rss-link-text">Subscribe</span></button>
                 <h4>Version 1</h4>
+                <a href="/devlogs/time-capsule/2026-10/19">But Atom is Even Better</a>
                 <a href="/devlogs/time-capsule/2026-10/18">RSS is Really Simple</a>
                 <a href="/devlogs/time-capsule/2026-10/13">GitHub Integration</a>
                 <a href="/devlogs/time-capsule/2026-10/08">Implementing Aero</a>

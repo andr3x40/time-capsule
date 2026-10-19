@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>time capsule devlog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <script type="text/javascript" src="/assets/components/tc-devlog-sidebar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+        
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>Time Capsule Devlog</h1>
+                <span>the devlog of this place</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; <a href="/devlogs">Devlogs</a> &blacktriangleright; <a href="/devlogs/time-capsule">Time Capsule</a>
+        </div>
+        <hr>
+        <div class="sidebar-container">
+            <tc-tc-devlog-sidebar></tc-tc-devlog-sidebar>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 class="title">Devlog 7 - But Atom is Even Better</h2>
+                        <span class="date" data-d="19" data-m="10" data-y="2026">2026-10-19</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            After doing my RSS feeds, I discovered about Atom. Which is RSS but with some quality-of-life changes.<br>
+                            ...I should do better researches before implementing something.
+                        </p>
+                        <p>
+                            The only notable differences between RSS and Atom are clearer tags and &mdash; I kid you not, better timestamps. They use a better standard than RSS's.<br>
+                            I can decide whether to put the entire post or a part of it without making it confusing and <em>add an update time to a post</em> that's different than the time of
+                            publication.<br>
+                            I like having these extra things, okay?
+                        </p>
+                        <p>
+                            Another thing I had to fix was the blog structure itself: all posts were crammed in a single page and it messes up with RSS readers because they don't know
+                            where to look for the full article.<br>
+                            Luckily, I only had to move some stuff to new pages and create a component for the sidebar so that I don't have to copypaste it every single time.
+                        </p>
+                        <p>
+                            For the devlogs, though, I had to do something different: considering these posts are not that meaningful and they only serve as a documentation of my
+                            pain and suffering, I decided to have the index page summarise all the versions instead of showing a preview of every log.
+                        </p>
+                        <p>
+                            And with this, I can finally say that <strong>I'm done with the blog part</strong> and I can start posting my random things.<br>
+                            The language thing will come after. A translator can do the job for now, even if it's not accurate most of the times.
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+        
+        </div>
+    </body>
+</html>
