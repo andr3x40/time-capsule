@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>blog - andr3x's time capsule</title>
+        <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+        <link href="/blog.css" rel="stylesheet" type="text/css" media="all">
+        <link rel="icon" href="/favicon.png">
+        <!-- load components -->
+        <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/dateformat.js" defer></script>
+        <script type="text/javascript" src="/assets/scripts/rss-feed.js"></script>
+        <!-- load theme -->
+        <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
+        <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
+    </head>
+    <body>
+        <tc-navbar></tc-navbar>
+        <div class="page">
+            
+        <header>
+            <div class="left">
+                <img src="/favicon.png"/>
+            </div>
+            <div class="right">
+                <h1>the blog</h1>
+                <span>my cozy safezone where cool people are welcome</span>
+            </div>
+        </header>
+        <div class="breadcrumb">
+            <a href="/">Home</a> &blacktriangleright; Blog
+        </div>
+        <hr>
+        <div class="box info-box timezone">
+            <span>
+                Every date and time you may see here is in <a href="https://en.wikipedia.org/wiki/Central_European_Time" class="with-tooltip" data-tooltip="Central Europe Time (UTC+1)">CET</a>
+                or <a href="https://en.wikipedia.org/wiki/Central_European_Summer_Time" class="with-tooltip" data-tooltip="Central Europe Summer Time (UTC+2)">CEST</a>
+            </span>
+        </div>
+        <div class="sidebar-container">
+            <section class="sidebar">
+                <button class="button-rss" onclick="getRssFeedLink('rss-link-text', 'https://andr3x40.neocities.org/feeds/blog.rss')"><img src="https://upload.wikimedia.org/wikipedia/en/4/43/Feed-icon.svg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=original" height="12px"/> <span id="rss-link-text">Subscribe</span></button>
+                <h4>September 2026</h4>
+                <a href="#post1">Doing a Blog in 2026</a>
+            </section>
+            <section class="main">
+                <article class="post">
+                    <div class="post-header">
+                        <h2 id="post1" class="title">Doing a Blog in 2026</h2>
+                        <span class="date" data-d="20" data-m="9" data-y="2026">Retrieving date...</span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Exactly. You're seeing a blog in 2026, like the good old days. It's for the better, trust me.<br>
+                            This is a post for the future where I explain why I'm doing a blog in recent times.
+                        </p>
+                        <p>
+                            Here, I'll post about stuff I may do, like me discovering music, videogames, comics, books, you name it. I could talk about anything.<br>
+                            There's a button at the top of the page to subscribe to the RSS feed of my blog, if you want to.
+                        </p>
+                        <p>
+                            <small>it's actually an atom feed but it's basically the same as rss</small>
+                        </p>
+                        <p>
+                            <a href="blog/2026-09/20" class="button button-accent">Read more</a>
+                        </p>
+                    </div>
+                </article>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            andr3x's time capsule - recording past since 2026<br>
+            created &amp; hosted on neocities
+        </footer>
+            
+        </div>
+    </body>
+</html>

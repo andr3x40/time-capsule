@@ -232,11 +232,6 @@ header .right span {
     user-select: none;
 }
 
-/* small text */
-.small-text {
-    font-size: 0.7em;
-}
-
 /* breadcrumb */
 .breadcrumb {
     font-size: small;
