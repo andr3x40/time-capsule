@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-	<id>https://andr3x40.neocities.org/devlogs/flame-editor/</id>
+	<id>https://andr3x40.neocities.org/devlogs/time-capsule/</id>
 	<title>andr3x's time capsule - website devlog</title>
 	<updated>2026-10-18T17:47:00+02:00</updated>
 	<author>
@@ -8,11 +8,12 @@
         <email>andreabnc.40@gmail.com</email>
 	</author>
     <icon>https://andr3x40.neocities.org/favicon.png</icon>
+	<link href="https://andr3x40.neocities.org/devlogs/time-capsule" rel="alternate" type="text/html"/>
 	<link href="https://andr3x40.neocities.org/feeds/tc-devlog.xml" rel="self" type="application/atom+xml"/>
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-10/18.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/18.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/18.html" rel="alternate" type="text/html"/>
 		<title>Devlog 6 - RSS is Really Simple</title>
 		<published>2026-10-18T17:47:00+02:00</published>
 		<summary>
@@ -25,7 +26,7 @@
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-10/13.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/13.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/13.html" rel="alternate" type="text/html"/>
 		<title>Devlog 5 - GitHub Integration</title>
 		<published>2026-10-13T18:00:00+02:00</published>
 		<summary>
@@ -36,7 +37,7 @@
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-10/08.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/08.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-10/08.html" rel="alternate" type="text/html"/>
 		<title>Devlog 4 - Implementing Aero</title>
 		<published>2026-10-08T18:00:00+02:00</published>
 		<summary>
@@ -47,7 +48,7 @@
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-09/18.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-09/18.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-09/18.html" rel="alternate" type="text/html"/>
 		<title>Devlog 3 - Understanding Aero</title>
 		<published>2026-09-18T18:00:00+02:00</published>
 		<summary>
@@ -58,7 +59,7 @@
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-09/13.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-09/13.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-09/13.html" rel="alternate" type="text/html"/>
 		<title>Devlog 2 - Static &amp; Dynamic</title>
 		<published>2026-09-13T18:00:00+02:00</published>
 		<summary>
@@ -70,7 +71,7 @@
 
 	<entry>
 		<id>https://andr3x40.neocities.org/devlogs/time-capsule/2026-08/26.html"</id>
-		<link href="https://andr3x40.neocities.org/time-capsule/2026-08/26.html"/>
+		<link href="https://andr3x40.neocities.org/time-capsule/2026-08/26.html" rel="alternate" type="text/html"/>
 		<title>Devlog 1 - Basics</title>
 		<published>2026-08-26T18:00:00+02:00</published>
 		<summary>
