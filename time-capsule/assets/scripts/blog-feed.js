@@ -15,6 +15,8 @@ fetch("/feeds/blog.xml")
 
       const filtered = tag ? posts.filter(p => p.tags.includes(tag)) : posts
 
+      document.getElementById("post-filter-info").innerHTML = tag ? `<span>Showing ${filtered.length} ${tag} posts</span><a href="/blog">Show all</a>` : `<span>Showing ${filtered.length} posts</span>`
+
       document.getElementById("post-container").innerHTML = filtered
         .map(post => `<article class="post">
                         <div class="post-header">
