@@ -17,7 +17,10 @@
 		<title>Doing a Blog in 2026</title>
 		<published>2026-09-20T18:00:00+02:00</published>
         <updated>2026-10-19T12:30:00+02:00</updated>
-		<summary>Like the good old days.</summary>
+		<summary>
+			Exactly. You're seeing a blog in 2026, like the good old days. It's for the better, trust me.
+            This is a post for the future where I explain why I'm doing a blog in recent times.
+		</summary>
         <category term="personal"/>
 	</entry>
 </feed>
