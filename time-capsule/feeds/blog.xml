@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<id>https://andr3x40.neocities.org/blog/</id>
 	<title>andr3x's time capsule - blog</title>
-	<updated>2026-10-19T12:30:00+02:00</updated>
+	<updated>2026-11-08T20:25:00+01:00</updated>
 	<author>
 		<name>andr3x40 (Andrea)</name>
         <email>andreabnc.40@gmail.com</email>
@@ -10,6 +10,19 @@
     <icon>https://andr3x40.neocities.org/favicon.png</icon>
 	<link href="https://andr3x40.neocities.org/blog" rel="alternate" type="text/html"/>
 	<link href="https://andr3x40.neocities.org/feeds/blog.xml" rel="self" type="application/atom+xml"/>
+
+	<entry>
+		<id>https://andr3x40.neocities.org/blog/2026-11/07.html</id>
+		<link href="https://andr3x40.neocities.org/blog/2026-11/07.html" rel="alternate" type="text/html"/>
+		<title>Fortnite Made a Crazy Gacha</title>
+		<published>2026-11-08T20:25:00+01:00</published>
+        <updated>2026-11-08T20:25:00+01:00</updated>
+		<summary>
+			Fortnite made a crazy gacha with its chests and I'm participating for the fun of it.
+            I'm not even interested in this thing, except for playing Fortnite Festival, but here I am.
+		</summary>
+        <category term="videogames"/>
+	</entry>
 
 	<entry>
 		<id>https://andr3x40.neocities.org/blog/2026-09/20.html"</id>
