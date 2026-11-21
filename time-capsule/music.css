@@ -1,60 +1,80 @@
 .music-dex {
     display: flex;
     flex-direction: row;
-
-    scroll-behavior: auto;
-    height: 300px;
-    
-    margin: 25px 0;
+    margin: 10px;
 }
 
-.music-dex .music-dex-entry {
+.music-dex-entry {
+    height: 260px;
+    border: 2px solid var(--dark);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    transition: transform 0.14s cubic-bezier(0.25, 1, 0.5, 1); /* ease out quart */
+}
+
+.music-dex-info {
+    text-align: center;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.dex-info-title {
     font-weight: 900;
     font-style: italic;
-    font-variant-numeric: tabular-nums;
-    margin-top: 0;
-
-    width: 25px;
-    writing-mode: vertical-rl;
-
-    border: 2px solid var(--dark-700);
-}
-
-.music-dex-entry.empty-entry {
-    background: var(--dark-300);
-}
-
-.music-dex-entry.filled-entry {
-    background: var(--dark);
+    font-size: 1.25em;
 }
 
 .music-dex-entry:hover {
-    width: 300px;
-    transform: translateY(-6px);
+    transform: translateY(-9px);
+    transition: transform 0.14s cubic-bezier(0.25, 1, 0.5, 1); /* ease out quart */
 }
 
 .music-dex-entry .entry-top {
-    height: 5%;
-    background: var(--light);
-}
-.music-dex-entry .entry-number {
-    height: 15%;
-    padding: 16px 0;
-    align-content: center;
-    font-size: large;
-    text-align: left;
-    color: var(--light);
-    background: var(--dark);
-}
-.music-dex-entry .entry-color {
-    height: 80%;
+    height: 5px;
 }
 
-.music-dex-entry#module-1 {
-    background: var(--purple-400);
+.music-dex-entry .entry-number {
+    height: 75px;
+    writing-mode: vertical-rl;
+    background-color: var(--dark);
+    color: var(--light);
+    padding: 1px 2px 4px 2px;
+    text-align: center;
+
+    font-family: var(--font-monospace);
+    font-weight: 900;
+    font-style: italic;
+    font-size: large;
 }
-.music-dex-entry#module-2 {
-    background: var(--purple-600);
+
+.music-dex-entry#m001 .entry-color {
+    height: 175px;
+    background-color: aqua;
+}
+
+.entry-top.entry-mix {
+    background-color: palevioletred;
+}
+
+.entry-top.entry-col {
+    background-color: paleturquoise;
+}
+
+.entry-top.entry-rec {
+    background-color: palegoldenrod;
+}
+
+.music-list {
+    display: grid;
+    grid-template-areas: "album-jacket album-tracks";
+    grid-template-columns: 1fr 3fr;
+
+    padding: 10px 25px;
+}
+
+.album-tracks h4 {
+    text-align: left;
+    align-items: center;
+    display: flex;
+    gap: 6px;
 }

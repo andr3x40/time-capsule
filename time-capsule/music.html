@@ -9,6 +9,8 @@
         <link rel="icon" href="/favicon.png">
         <!-- load components -->
         <script type="text/javascript" src="/assets/components/navbar.js"></script>
+        <!-- load scripts -->
+        <script type="text/javascript" src="/assets/scripts/music-info.js" defer></script>
         <!-- load theme -->
         <script type="text/javascript" src="/assets/scripts/theme-set.js"></script>
         <script type="text/javascript" src="/assets/scripts/theme-select.js" defer></script>
@@ -39,41 +41,79 @@
                 </div>
             </article>
             <article>
-                <h2 class="header-primary">Modules</h2>
+                <h2 class="header-primary">Mix Modules</h2>
                 <div class="article-content">
                     <p>
-                        My curated playlists that can be expanded as time goes.
+                        Curated playlists that revolve around a specific genre.
                     </p>
                     <div class="music-dex">
-                        <div id="module-1"   class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">001</div><div class="entry-color"></div></div>
-                        <div id="module-2"   class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">002</div><div class="entry-color"></div></div>
-                        <div id="module-6"   class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">006</div><div class="entry-color"></div></div>
-                        <div id="module-11"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">011</div><div class="entry-color"></div></div>
-                        <div id="module-16"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">016</div><div class="entry-color"></div></div>
-                        <div id="module-39"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">039</div><div class="entry-color"></div></div>
-                        <div id="module-40"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">040</div><div class="entry-color"></div></div>
-                        <div id="module-60"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">060</div><div class="entry-color"></div></div>
-                        <div id="module-85"  class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">085</div><div class="entry-color"></div></div>
-                        <div id="module-104" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">104</div><div class="entry-color"></div></div>
-                        <div id="module-174" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">174</div><div class="entry-color"></div></div>
-                        <div id="module-385" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">385</div><div class="entry-color"></div></div>
-                        <div id="module-418" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">418</div><div class="entry-color"></div></div>
-                        <div id="module-486" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">486</div><div class="entry-color"></div></div>
-                        <div id="module-709" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">709</div><div class="entry-color"></div></div>
-                        <div id="module-727" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">727</div><div class="entry-color"></div></div>
-                        <div id="module-909" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">909</div><div class="entry-color"></div></div>
+                        <a href="music/001">
+                            <div id="m001" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">001</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/002">
+                            <div id="m002" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">002</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/006">
+                            <div id="m006" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">006</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/011">
+                            <div id="m011" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">011</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/016">
+                            <div id="m016" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">016</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/039">
+                            <div id="m039" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">039</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/040">
+                            <div id="m040" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">040</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/051">
+                            <div id="m051" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">051</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/069">
+                            <div id="m069" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">069</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/070">
+                            <div id="m070" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">070</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/085">
+                            <div id="m085" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">085</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/104">
+                            <div id="m104" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">104</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/174">
+                            <div id="m174" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">174</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/385">
+                            <div id="m385" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">385</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/418">
+                            <div id="m418" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">418</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/486">
+                            <div id="m486" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">486</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/709">
+                            <div id="m709" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">709</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/727">
+                            <div id="m727" class="music-dex-entry"><div class="entry-top entry-mix"></div><div class="entry-number">727</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/909">
+                            <div id="m909" class="music-dex-entry"><div class="entry-top entry-col"></div><div class="entry-number">909</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                            
+                        <a href="music/1064">
+                            <div id="m1064" class="music-dex-entry"><div class="entry-top entry-rec"></div><div class="entry-number">1064</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
+                        <a href="music/01066">
+                            <div id="m1066" class="music-dex-entry"><div class="entry-top entry-rec"></div><div class="entry-number">1066</div><div class="entry-bottom entry-color"></div></div>
+                        </a>
                     </div>
-                </div>
-            </article>
-            <article>
-                <h2 class="header-secondary">Recollections</h2>
-                <div class="article-content">
-                    <p>
-                        Other playlists with a common theme. Already created somewhere else.
-                    </p>
-                    <div class="music-dex">
-                        <div id="module-a65" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">A65</div><div class="entry-color"></div></div>
-                        <div id="module-a66" class="music-dex-entry"><div class="entry-top"></div><div class="entry-number">A66</div><div class="entry-color"></div></div>
+                    <div id="music-dex-module-info" class="music-dex-info">
+                        <span class="dex-info-title">NO MODULE SELECTED</span><br>Hover on a module box to view its info.
                     </div>
                 </div>
             </article>
