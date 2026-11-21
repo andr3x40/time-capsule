@@ -10,44 +10,91 @@
     padding: 15px;
 }
 
+#map-list-container {
+    display: grid;
+    grid-template-areas: "map-preview map-list";
+    grid-template-columns: 47fr 53fr;
+
+    background-color: transparent;
+    border: transparent;
+    height: 600px;
+}
+
 .map-list {
-    display: flex;
-    flex-direction: column;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-left: 25px;
 }
 
 .map-card {
     width: 1fr;
-    height: 30px;
+    height: 42px;
     
     display: grid;
-    grid-template-areas: "chart-marker chart-info chart-difficulty";
-    grid-template-columns: 32px 1fr auto;
+    grid-template-areas: "chart-difficulty chart-info";
+    grid-template-columns: 55px auto;
     align-content: center;
     align-items: center;
     
     color: var(--light);
+    border-bottom: var(--light) 1px solid;
+    transition: 100ms ease;
     
-    padding: 15px;
-    gap: 10px;
-    background: linear-gradient(to bottom, var(--dark-400) 0, var(--dark-500) 20%, var(--dark-600) 48%);
-}
-.map-card:hover {
-    height: 75px;
-    cursor: pointer;
-    background: linear-gradient(to bottom, var(--dark-200) 0, var(--dark-300) 3%, var(--dark-400) 20%, var(--dark-500) 48%, var(--dark-600) 52%);
+    border: 1px solid rgb(from var(--glass-border) r g b / 0.5);
+    box-shadow: 2px 0px 3px rgb(from var(--glass-shadow) r g b / 0.8), inset -1px -1px 0 rgb(from var(--glass-shadow) r g b / 0.2);
 }
 
-/* hide additional elements when not hovered */
-.map-card .artist,
-.map-card .difficulty-ticks {
-    display: none;
+.map-card:hover {
+    transform: translateX(-22px);
+    transition: 100ms ease;
 }
-/* display additional elements when hovered (set inline for spans, block for divs, flex for flexboxes) */
-.map-card:hover .artist {
-    display: inline;
+
+.chart-difficulty {
+    text-align: center;
+    font-weight: 900;
+
+    font-size: 1.2em;
+    font-variant-numeric: tabular-nums;
+    height: 42px;
+    border-right: 1px solid rgb(from var(--glass-border) r g b / 0.5);
 }
-.map-card:hover .difficulty-ticks {
-    display: flex;
+
+.chart-difficulty-plus {
+    padding-left: 6px;
+}
+
+.chart-difficulty.tier-0 {
+    background: linear-gradient(125deg, rgb(from var(--gray-500) r g b / 0.88), rgb(from var(--gray-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-1 {
+    background: linear-gradient(125deg, rgb(from var(--blue-500) r g b / 0.88), rgb(from var(--blue-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-2 {
+    background: linear-gradient(125deg, rgb(from var(--mint-500) r g b / 0.88), rgb(from var(--mint-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-3 {
+    background: linear-gradient(125deg, rgb(from var(--yellow-500) r g b / 0.88), rgb(from var(--yellow-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-4 {
+    background: linear-gradient(125deg, rgb(from var(--red-500) r g b / 0.88), rgb(from var(--red-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-5 {
+    background: linear-gradient(125deg, rgb(from var(--purple-500) r g b / 0.88), rgb(from var(--purple-500) r g b / 0.62) );
+}
+.chart-difficulty.tier-6 {
+    background: linear-gradient(125deg, rgb(from var(--indigo-500) r g b / 0.88), rgb(from var(--indigo-500) r g b / 0.62) );
+}
+
+.chart-info {
+    height: 42px;
+    padding: 0 10px;
+    width: 100%;
+    
+    background: linear-gradient(125deg, rgb(from var(--dark) r g b / 0.68), rgb(from var(--dark) r g b / 0.12) );
+}
+
+.chart-info .subtitle {
+    font-size: 0.75rem;
 }
 
 .chart-marker {

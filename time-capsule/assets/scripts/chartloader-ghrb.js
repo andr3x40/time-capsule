@@ -23,7 +23,7 @@ function camelToTitleCase(str) {
 
 // gives the short intensity to display
 function getShortIntensity(intensity) {
-    if (intensity === undefined) return "-";
+    if (intensity === undefined) return "";
     const closerIntensity = Math.round(intensity)
     let displayIntensity = String(Math.trunc(intensity)).padStart(2, '0') // display the intensity with two numbers instead of one
     // if the rounded intensity is bigger, add a +
@@ -202,7 +202,7 @@ function renderFilteredList(items) {
 
 // render the whole chart list according to the filters set
 function renderList(items) {
-    const container = document.getElementById('map-list-container');
+    const container = document.getElementById('map-list');
     container.innerHTML = ''; // clear
 
     // render the chart count
@@ -260,32 +260,15 @@ function renderList(items) {
         const difficultyTicks = aggregate ? [0, 0, 0, 0, 0, 0] : getDifficultyTicks(variantDisplay.intensity)
         
         const intensityDisplay = aggregate ? variantDisplay.intensity : getShortIntensity(variantDisplay.intensity);
-        
+        const intensityPlus = aggregate ? false : intensityDisplay.endsWith('&#8314')
+
         const artist = item.featurings ? `${item.artist} ft. ${item.featurings.join(', ')}` : item.artist;
 
         const source = getSourceName(item.sourceCode);
 
         card.innerHTML = `
-            <div class="chart-marker marker-${item.sourceCode.toLowerCase()} with-tooltip" data-tooltip="${source}">${item.sourceCode}</div>
-            <div class="chart-info">
-                <span class="artist">${artist ?? "Unknown Artist"}</span>
-                <h2 class="title">${item.title ?? "Untitled"}</h2>
-                <span class="subtitle">${item.subtitle ?? ""}</span>
-            </div>
-            <div class="chart-difficulty">
-                <div class="difficulty difficulty-${difficultyTier}">
-                    <span class="difficulty-name" data-difficulty="${camelToTitleCase(filters.difficulty)}">${variantDisplay.difficulty ?? camelToTitleCase(filters.difficulty)}</span>
-                    <span class="intensity">${intensityDisplay}</span>
-                </div>
-                <div class="difficulty-ticks">
-                    <div class="tick-${difficultyTicks[0]}"></div>
-                    <div class="tick-${difficultyTicks[1]}"></div>
-                    <div class="tick-${difficultyTicks[2]}"></div>
-                    <div class="tick-${difficultyTicks[3]}"></div>
-                    <div class="tick-${difficultyTicks[4]}"></div>
-                    <div class="tick-${difficultyTicks[5]}"></div>
-                </div>
-            </div>
+            <div class="chart-difficulty${intensityPlus ? " chart-difficulty-plus" : ""} tier-${difficultyTier}">${intensityDisplay}</div>
+            <div class="chart-info"><div>${item.title ?? "Untitled"}</div><div class="subtitle">${item.subtitle ?? ""}</div></div>
         `;
 
         container.appendChild(card);
